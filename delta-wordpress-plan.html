@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แผนสร้างเว็บ WordPress — Delta (รีแบรนด์จาก HK)</title>
+<style>
+  :root{--blue:#1877f2;--ink:#1c2530;--muted:#5b6773;--line:#e4e7eb;--bg:#f4f6f8;--r:#e03e3e;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Sukhumvit Set','Noto Sans Thai',sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;padding:22px}
+  .page{max-width:960px;margin:0 auto;background:#fff;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,.06);overflow:hidden}
+  header{background:linear-gradient(135deg,#e67e22,#d35400);color:#fff;padding:22px 28px}
+  header h1{font-size:21px;font-weight:800}
+  header .sub{font-size:13px;opacity:.92;margin-top:5px}
+  .bar-wrap{margin-top:16px}
+  .bar-top{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;opacity:.95}
+  .bar{height:9px;background:rgba(255,255,255,.28);border-radius:20px;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:#fff;border-radius:20px;transition:width .35s}
+  .body{padding:20px 28px 28px}
+  .actions{display:flex;gap:10px;justify-content:flex-end;margin-bottom:12px}
+  .btn{font-size:12.5px;font-weight:700;padding:8px 16px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
+  .btn:hover{background:#f3f4f6}.btn.print{background:#e67e22;color:#fff;border-color:#e67e22}
+  h2{font-size:15px;font-weight:800;color:#c0560f;margin:24px 0 10px}
+  h2:first-child{margin-top:0}
+
+  .callout{border:1px solid #ffd9b3;background:#fff6ec;border-radius:12px;padding:14px 18px;font-size:13px;color:#7a4a1a}
+  .callout b{color:#8a3d00}
+  .info{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:#fbfcfe;font-size:13.5px}
+  .info b{color:var(--ink)}
+  .sec-list{list-style:none;counter-reset:s;margin-top:8px}
+  .sec-list li{counter-increment:s;position:relative;padding-left:30px;margin-bottom:5px;font-size:13.5px;color:var(--muted)}
+  .sec-list li::before{content:counter(s);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:6px;background:#fdead4;color:#c0560f;font-weight:800;font-size:11px;display:grid;place-items:center}
+
+  .phase{border:1px solid var(--line);border-radius:12px;margin-top:12px;overflow:hidden}
+  .phase-h{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px;background:#fff4ea;cursor:pointer}
+  .phase-h h3{font-size:14px;font-weight:800;color:#8a3d00}
+  .phase-h .pnote{font-size:11.5px;color:var(--muted);font-weight:500}
+  .phase-h .pprog{font-size:12px;font-weight:800;color:#c0560f;white-space:nowrap}
+  .phase-b{padding:6px 18px 12px}
+  label.task{display:flex;gap:10px;align-items:flex-start;padding:7px 8px;border-radius:8px;cursor:pointer;font-size:13.5px}
+  label.task:hover{background:#fdf7f1}
+  label.task input{width:18px;height:18px;margin-top:1px;accent-color:#e67e22;cursor:pointer;flex-shrink:0}
+  label.task.done span{text-decoration:line-through;color:#9aa5b1}
+  .tag-urg{display:inline-block;font-size:10px;font-weight:800;color:#fff;background:var(--r);padding:1px 7px;border-radius:20px;margin-left:6px;vertical-align:middle}
+  .tag-star{display:inline-block;font-size:10px;font-weight:800;color:#fff;background:#0f9d58;padding:1px 7px;border-radius:20px;margin-right:6px;vertical-align:middle}
+  .gsub{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:#fff;background:#8a5a2b;display:inline-block;padding:2px 10px;border-radius:6px;margin:14px 0 4px}
+  .gsub:first-child{margin-top:2px}
+  footer{padding:12px 28px 24px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+  @media print{body{background:#fff;padding:0}.page{box-shadow:none}.actions{display:none}.phase-b{display:block!important}}
+  @media(max-width:640px){}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <h1>🔁 แผนสร้างเว็บ WordPress — Delta (รีแบรนด์จาก HK)</h1>
+  <div class="sub">สร้างเว็บแคตตาล็อก Delta + ย้าย SEO จาก hkmotorguide.com · ทำเว็บ/ย้ายข้อมูลใน ส.ค. และ Go live ใน ก.ย. 2026 · Digital Marketing: Pao</div>
+  <div class="bar-wrap"><div class="bar-top"><span>ความคืบหน้ารวม</span><span id="ovText">0 / 0 (0%)</span></div><div class="bar"><i id="ovBar"></i></div></div>
+</header>
+<div class="body">
+  <div class="actions"><button class="btn" onclick="resetAll()">ล้างการติ๊ก</button><button class="btn print" onclick="window.print()">🖨 พิมพ์ / PDF</button></div>
+
+  <div class="callout">
+    <b>สิ่งที่ต่างจากเว็บทั่วไป:</b> Delta คือการ <b>รีแบรนด์จาก HK</b> — เว็บเดิม hkmotorguide.com เป็นบทความ + ข้อมูลสินค้าที่มีอันดับอยู่ ดังนั้นหัวใจของงานนี้คือ <b>ย้ายคอนเทนต์มา + ทำ 301 redirect</b> เพื่อรักษาพลัง SEO เดิม ไม่ให้อันดับหาย
+  </div>
+
+  <h2>📦 สิ่งที่ต้องเตรียม (ก่อน/ระหว่างสร้าง)</h2>
+  <div style="font-size:12px;color:#5b6773;margin-bottom:8px">ป้ายเขียว “ต้องมีก่อน” = ควรมีตั้งแต่เริ่ม</div>
+  <div id="prep"></div>
+
+  <h2>📄 โครงหน้า (Sitemap)</h2>
+  <div class="callout" style="margin-bottom:6px">
+    <b>เว็บนี้เป็น "เว็บให้ข้อมูล" (แคตตาล็อก)</b> — ไม่มีตะกร้า/เช็กเอาต์/ชำระเงิน/ขนส่งบนเว็บ · ซื้อขายผ่าน <b>LINE · Shopee · Lazada</b> (แต่ละสินค้ามีปุ่มลิงก์ไปช่องทางเหล่านี้)
+  </div>
+  <div class="info">
+    <b>หน้าหลัก:</b> Home · แคตตาล็อกสินค้า Delta (ให้ข้อมูล) · หมวดสินค้า · หน้าสินค้าเดี่ยว (ข้อมูล + ปุ่มสั่งซื้อ LINE/Shopee/Lazada) · <b>Blog / บทความ (ย้ายจาก HK)</b> · About · FAQ · ช่องทางสั่งซื้อ (Where to Buy) · Contact · นโยบาย (Terms/Privacy)
+    <div style="margin-top:12px"><b>เลย์เอาต์หน้าแรก (บน→ล่าง):</b></div>
+    <ol class="sec-list">
+      <li>Header/Nav — โลโก้ Delta · เมนู · ค้นหา · ปุ่มลอย LINE</li>
+      <li>Hero — แบนเนอร์/วิดีโอ + สโลแกน + CTA</li>
+      <li>Featured products — การ์ดสินค้าเด่น + ปุ่ม “สั่งซื้อทาง LINE/Shopee/Lazada”</li>
+      <li>หมวดสินค้า tiles</li>
+      <li>แบนเนอร์แบรนด์ + จุดขาย</li>
+      <li>About / เรื่องแบรนด์ Delta</li>
+      <li>บทความล่าสุด (คอนเทนต์ที่ย้ายมา — ตัวดึงทราฟฟิก SEO)</li>
+      <li><b>ช่องทางสั่งซื้อ</b> — ปุ่มใหญ่ LINE / Shopee / Lazada</li>
+      <li>Footer — Help/Policy/Social + ไอคอนช่องทางขาย</li>
+    </ol>
+  </div>
+
+  <h2>🔌 ธีม + ปลั๊กอินที่ต้องลง</h2>
+  <div id="plugins"></div>
+
+  <h2>✅ ลำดับงาน (Step by step)</h2>
+  <div id="phases"></div>
+</div>
+<footer>จัดทำโดย: Pao — Digital Marketing Staff · ค่าที่ติ๊กถูกบันทึกอัตโนมัติในเบราว์เซอร์เครื่องนี้ · เนื้อหา/รูป/โค้ดเป็นของ Delta เอง (ยึดแค่โครง/เลย์เอาต์จากเว็บหลัก)</footer>
+</div>
+
+<script>
+const KEY="deltawp_v1_";
+const $=s=>document.querySelector(s);
+let boxes=[];
+
+const PREP=[
+ {g:"บัญชี & บริการ",t:[
+   "ชื่อโดเมน Delta ที่ยืนยันแล้ว + บัญชี registrar|star",
+   "โฮสติ้ง (LiteSpeed) + ข้อมูลล็อกอิน|star",
+   "สิทธิ์เข้า Google Search Console ของ hkmotorguide.com เดิม|star",
+ ]},
+ {g:"ช่องทางขาย (LINE / Shopee / Lazada)",t:[
+   "LINE OA + ลิงก์เพิ่มเพื่อน (LINE ID/URL)|star",
+   "ลิงก์ร้าน Shopee|star",
+   "ลิงก์ร้าน Lazada|star",
+ ]},
+ {g:"ข้อมูลย้าย SEO จาก HK (สำคัญสุด)",t:[
+   "บัญชี URL ทั้งหมดของ hkmotorguide.com (จาก sitemap + Search Console)|star",
+   "รายการหน้า/บทความที่มีทราฟฟิก/backlink สูงสุด (ไว้จัดลำดับย้ายก่อน)|star",
+   "ไฟล์เนื้อหาบทความเดิมที่จะย้าย (คงพาธ/slug เดิมได้ยิ่งดี)|star",
+ ]},
+ {g:"แบรนด์ & ดีไซน์ (Delta)",t:[
+   "โลโก้ Delta — SVG/PNG พื้นโปร่ง (สี + ขาว)|star",
+   "สีแบรนด์ (hex) + ฟอนต์|star",
+   "favicon · รูป/วิดีโอ Hero",
+ ]},
+ {g:"สินค้า (แคตตาล็อก — ให้ข้อมูล ไม่ขายบนเว็บ)",t:[
+   "รายการสินค้า Delta: รุ่น · ตัวเลือกสี/ไซซ์ · ราคา (โชว์เป็นข้อมูล)|star",
+   "รูปสินค้าแต่ละรุ่น/สี (พื้นสะอาด หลายมุม)|star",
+   "คำอธิบาย + สเปกสินค้า Delta",
+   "ลิงก์สินค้าแต่ละตัวบน Shopee & Lazada (สำหรับปุ่มสั่งซื้อ)|star",
+   "โครงหมวดสินค้า",
+ ]},
+ {g:"เนื้อหา & ข้อมูลติดต่อ",t:[
+   "About / FAQ / ข้อมูลติดต่อ + โซเชียล",
+   "นโยบาย: Terms / Privacy (การซื้อ/คืนสินค้าอ้างอิงตามช่องทาง Shopee/Lazada/LINE)",
+ ]},
+ {g:"Tracking",t:[
+   "GA4 Measurement ID · GTM container · Meta Pixel ID",
+ ]},
+];
+function renderPrep(){
+  const html=PREP.map((grp,gi)=>{
+    const items=grp.t.map((t,ti)=>{const id=KEY+"pr_"+gi+"_"+ti;
+      const star=t.endsWith("|star");const label=star?t.slice(0,-5):t;
+      return `<label class="task"><input type="checkbox" id="${id}"><span>${star?'<span class="tag-star">ต้องมีก่อน</span>':''}${label}</span></label>`;}).join("");
+    return `<div class="gsub">${grp.g}</div>${items}`;
+  }).join("");
+  $("#prep").innerHTML=`<div class="phase"><div class="phase-b">${html}</div></div>`;
+}
+
+const PLUGINS=[
+ {n:"ธีมเบา (Astra หรือ Kadence)"},
+ {n:"Elementor (+ Pro ถ้าต้องทำ Header/Footer/Product template)"},
+ {n:"WooCommerce โหมดแคตตาล็อก — ปิดตะกร้า/เช็กเอาต์ (หรือใช้ปลั๊กอินแคตตาล็อกแทน)"},
+ {n:"ปุ่มช่องทางขาย: LINE · Shopee · Lazada (ใส่ในแต่ละสินค้า + ปุ่มลอย LINE)"},
+ {n:"Rank Math (หรือ Yoast) — SEO / sitemap / schema"},
+ {n:"LiteSpeed Cache หรือ WP Rocket — cache/ความเร็ว"},
+ {n:"ShortPixel / Imagify — บีบรูป + WebP"},
+ {n:"★ Redirection — จัดการ 301 (หัวใจของงานย้าย HK)|urg"},
+ {n:"UpdraftPlus — สำรองข้อมูล · Wordfence — ความปลอดภัย"},
+ {n:"WPForms / Contact Form 7 — ฟอร์มติดต่อ"},
+ {n:"Google Site Kit หรือใส่ GTM/GA4/Pixel เอง"},
+];
+function renderPlugins(){
+  const items=PLUGINS.map((p,i)=>{const id=KEY+"pl_"+i;
+    const urg=p.n.endsWith("|urg");const label=urg?p.n.slice(0,-4):p.n;
+    return `<label class="task"><input type="checkbox" id="${id}"><span>${label}${urg?'<span class="tag-urg">สำคัญ</span>':''}</span></label>`;}).join("");
+  $("#plugins").innerHTML=`<div class="phase"><div class="phase-b">${items}</div></div>`;
+}
+
+const PHASES=[
+ {m:"เฟส 0 — เตรียม",note:"โดเมน + โฮสต์ + WordPress",t:[
+   "จดโดเมน Delta + โฮสติ้ง (LiteSpeed, PHP 8.x)",
+   "ติดตั้ง WordPress + เปิด SSL (https)",
+   "★ ขึ้นหน้า Coming Soon หน้าเดียว พร้อมไอคอนลิงก์ LINE/Shopee/Lazada ระหว่างสร้างเว็บ|urg",
+   "ตั้ง permalink = ชื่อโพสต์, timezone ไทย",
+ ]},
+ {m:"เฟส 1 — วางระบบ",note:"ธีม + ปลั๊กอิน + staging",t:[
+   "ลงธีม + Elementor + WooCommerce แล้วตั้งเป็นโหมดแคตตาล็อก (ปิดตะกร้า/เช็กเอาต์/ชำระเงิน/ขนส่ง)",
+   "ลงปลั๊กอินหลัก (SEO/cache/รูป/security/backup + Redirection)",
+   "★ ตั้ง staging + ใส่รหัสผ่าน/noindex (กัน staging แย่ง index)|urg",
+ ]},
+ {m:"เฟส 2 — ดีไซน์ & โครงหน้า",note:"ทำหน้า + อัปสินค้า",t:[
+   "ตั้ง Global styles (สี/ฟอนต์แบรนด์ Delta)",
+   "ทำ Header + Footer",
+   "สร้างหมวด + อัปโหลดสินค้า Delta (รูป/ราคา/variant/สเปก)",
+   "ออกแบบ Single Product template",
+   "ประกอบหน้าแรก + เพจ About/FAQ/Contact/นโยบาย",
+ ]},
+ {m:"เฟส 3 — ย้ายคอนเทนต์ & SEO Migration (หัวใจของ Delta)",note:"ดำเนินการใน ส.ค. · ย้ายบทความ + 301 redirect",t:[
+   "★ ทำบัญชี URL เก่า hkmotorguide.com ทั้งหมด (sitemap + Search Console)|urg",
+   "★ ย้าย/เขียนบทความจาก HK มา Delta — คงพาธ/slug เดิม, แก้แบรนด์ HK→Delta|urg",
+   "★ ตั้ง 301 redirect map: URL เก่า → URL Delta ที่ตรงกัน (หน้าที่ไม่มีของแทน → หมวดใกล้สุด อย่าปล่อย 404)|urg",
+   "ตั้ง Rank Math (title/meta/sitemap/schema)",
+   "★ Search Console: เพิ่ม property Delta + ใช้ Change of Address|urg",
+   "ติด GTM / GA4 / Pixel",
+   "เปิด cache + บีบรูป WebP → PageSpeed ให้ถึง 75+",
+ ]},
+ {m:"เฟส 4 — Go live & เฝ้าดู",note:"ขึ้นจริงใน ก.ย. + รักษา redirect",t:[
+   "ทดสอบ redirect ทุกเส้น + มือถือ + ทดลองสั่งซื้อจริง",
+   "★ เปิด index + ปิดหน้า Coming Soon/รหัส staging → Go live ใน ก.ย. + ส่ง sitemap ใน Search Console|urg",
+   "★ คงโดเมน hkmotorguide.com + redirect ไว้ ≥ 12 เดือน (อย่าปล่อยหมดอายุ)|urg",
+   "เฝ้าดู Search Console 2–4 สัปดาห์ (coverage / 404 / อันดับ) แล้วไล่แก้",
+ ]},
+];
+function renderPhases(){
+  const root=$("#phases");
+  PHASES.forEach((ph,pi)=>{
+    const items=ph.t.map((t,ti)=>{const id=KEY+"ph_"+pi+"_"+ti;
+      const urg=t.endsWith("|urg");const label=urg?t.slice(0,-4):t;
+      return `<label class="task"><input type="checkbox" id="${id}"><span>${label}${urg?'<span class="tag-urg">สำคัญ</span>':''}</span></label>`;}).join("");
+    const sec=document.createElement("div");sec.className="phase";
+    sec.innerHTML=`<div class="phase-h" onclick="toggleP(this)"><div><h3>${ph.m}</h3><div class="pnote">${ph.note}</div></div><div class="pprog" data-pi="${pi}">0/0</div></div><div class="phase-b">${items}</div>`;
+    root.appendChild(sec);
+  });
+}
+function toggleP(h){const b=h.nextElementSibling;b.style.display=b.style.display==="none"?"block":"none";}
+function syncLabel(b){b.closest('.task').classList.toggle('done',b.checked);}
+function bind(){
+  boxes=[...document.querySelectorAll('.task input')];
+  boxes.forEach(b=>{b.checked=localStorage.getItem(b.id)==="1";syncLabel(b);
+    b.addEventListener('change',()=>{localStorage.setItem(b.id,b.checked?"1":"0");syncLabel(b);update();});});
+}
+function update(){
+  const total=boxes.length,done=boxes.filter(b=>b.checked).length,pct=total?Math.round(done/total*100):0;
+  $("#ovBar").style.width=pct+"%";$("#ovText").textContent=`${done} / ${total} (${pct}%)`;
+  document.querySelectorAll('.pprog').forEach(el=>{const p=KEY+"ph_"+el.dataset.pi+"_";
+    const ms=boxes.filter(b=>b.id.startsWith(p));el.textContent=`${ms.filter(b=>b.checked).length}/${ms.length}`;});
+}
+function resetAll(){if(!confirm("ล้างการติ๊กทั้งหมด?"))return;boxes.forEach(b=>{b.checked=false;localStorage.setItem(b.id,"0");syncLabel(b);});update();}
+
+renderPrep();renderPlugins();renderPhases();bind();update();
+</script>
+</body>
+</html>

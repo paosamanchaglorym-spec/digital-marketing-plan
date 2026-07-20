@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แผนสร้างเว็บ WordPress — Hiracer Thailand</title>
+<style>
+  :root{--blue:#1877f2;--ink:#1c2530;--muted:#5b6773;--line:#e4e7eb;--bg:#f4f6f8;--r:#e03e3e;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Sukhumvit Set','Noto Sans Thai',sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;padding:22px}
+  .page{max-width:960px;margin:0 auto;background:#fff;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,.06);overflow:hidden}
+  header{background:linear-gradient(135deg,#1877f2,#0a5fd9);color:#fff;padding:22px 28px}
+  header h1{font-size:21px;font-weight:800}
+  header .sub{font-size:13px;opacity:.9;margin-top:5px}
+  .bar-wrap{margin-top:16px}
+  .bar-top{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;opacity:.95}
+  .bar{height:9px;background:rgba(255,255,255,.25);border-radius:20px;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:#fff;border-radius:20px;transition:width .35s}
+  .body{padding:20px 28px 28px}
+  .actions{display:flex;gap:10px;justify-content:flex-end;margin-bottom:12px}
+  .btn{font-size:12.5px;font-weight:700;padding:8px 16px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
+  .btn:hover{background:#f3f4f6}.btn.print{background:var(--blue);color:#fff;border-color:var(--blue)}
+  h2{font-size:15px;font-weight:800;color:var(--blue);margin:24px 0 10px}
+  h2:first-child{margin-top:0}
+
+  .info{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:#fbfcfe;font-size:13.5px}
+  .info b{color:var(--ink)}
+  .info .grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin-top:8px}
+  .info .grid div{color:var(--muted)}
+  .sec-list{list-style:none;counter-reset:s;margin-top:8px}
+  .sec-list li{counter-increment:s;position:relative;padding-left:30px;margin-bottom:5px;font-size:13.5px;color:var(--muted)}
+  .sec-list li::before{content:counter(s);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:6px;background:#e8f0fe;color:var(--blue);font-weight:800;font-size:11px;display:grid;place-items:center}
+
+  .phase{border:1px solid var(--line);border-radius:12px;margin-top:12px;overflow:hidden}
+  .phase-h{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px;background:#eef4ff;cursor:pointer}
+  .phase-h h3{font-size:14px;font-weight:800;color:#20364f}
+  .phase-h .pnote{font-size:11.5px;color:var(--muted);font-weight:500}
+  .phase-h .pprog{font-size:12px;font-weight:800;color:var(--blue);white-space:nowrap}
+  .phase-b{padding:6px 18px 12px}
+  label.task{display:flex;gap:10px;align-items:flex-start;padding:7px 8px;border-radius:8px;cursor:pointer;font-size:13.5px}
+  label.task:hover{background:#f7f9fc}
+  label.task input{width:18px;height:18px;margin-top:1px;accent-color:var(--blue);cursor:pointer;flex-shrink:0}
+  label.task.done span{text-decoration:line-through;color:#9aa5b1}
+  .tag-urg{display:inline-block;font-size:10px;font-weight:800;color:#fff;background:var(--r);padding:1px 7px;border-radius:20px;margin-left:6px;vertical-align:middle}
+  .tag-star{display:inline-block;font-size:10px;font-weight:800;color:#fff;background:#0f9d58;padding:1px 7px;border-radius:20px;margin-right:6px;vertical-align:middle}
+  .gsub{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:#fff;background:#455a64;display:inline-block;padding:2px 10px;border-radius:6px;margin:14px 0 4px}
+  .gsub:first-child{margin-top:2px}
+  footer{padding:12px 28px 24px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+  @media print{body{background:#fff;padding:0}.page{box-shadow:none}.actions{display:none}.phase-b{display:block!important}}
+  @media(max-width:640px){.info .grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <h1>🛠️ แผนสร้างเว็บ WordPress — Hiracer Thailand</h1>
+  <div class="sub">ยึดโครงเว็บหลัก (hiracers.com) · เว็บแคตตาล็อก WordPress · เป้าหมาย Go live ภายในครึ่งแรกของ ส.ค. 2026 (~15 ส.ค.) · Digital Marketing: Pao</div>
+  <div class="bar-wrap"><div class="bar-top"><span>ความคืบหน้ารวม</span><span id="ovText">0 / 0 (0%)</span></div><div class="bar"><i id="ovBar"></i></div></div>
+</header>
+<div class="body">
+  <div class="actions"><button class="btn" onclick="resetAll()">ล้างการติ๊ก</button><button class="btn print" onclick="window.print()">🖨 พิมพ์ / PDF</button></div>
+
+  <h2>📦 สิ่งที่ต้องเตรียม (ก่อน/ระหว่างสร้าง)</h2>
+  <div style="font-size:12px;color:#5b6773;margin-bottom:8px">รวบรวมให้ครบจะทำให้เฟส 1–2 ไหลลื่น · ป้ายเขียว “ต้องมีก่อน” = ควรมีตั้งแต่เริ่ม</div>
+  <div id="prep"></div>
+
+  <h2>📄 โครงหน้า (Sitemap)</h2>
+  <div class="callout" style="border:1px solid #ffd9b3;background:#fff6ec;border-radius:12px;padding:14px 18px;font-size:13px;color:#7a4a1a;margin-bottom:6px">
+    <b>เว็บนี้เป็น "เว็บให้ข้อมูล" (แคตตาล็อก)</b> — ไม่มีตะกร้า/เช็กเอาต์/ชำระเงิน/ขนส่งบนเว็บ · การซื้อขายทำผ่าน 3 ช่องทาง: <b>LINE · Shopee · Lazada</b> (แต่ละสินค้ามีปุ่มลิงก์ไปช่องทางเหล่านี้)
+  </div>
+  <div class="info">
+    <b>หน้าหลัก:</b> Home · แคตตาล็อกสินค้า (ให้ข้อมูล) · หมวด Running / Track &amp; Field / Jogging · หน้าสินค้าเดี่ยว (ข้อมูล + ปุ่มสั่งซื้อ LINE/Shopee/Lazada) · Blog · About · Size Chart · FAQ · ช่องทางสั่งซื้อ (Where to Buy) · Contact · นโยบาย (Terms/Privacy)
+    <div style="margin-top:12px"><b>เลย์เอาต์หน้าแรก (บน→ล่าง):</b></div>
+    <ol class="sec-list">
+      <li>Header/Nav — โลโก้ · เมนูหมวด · ค้นหา · ปุ่มลอย LINE</li>
+      <li>Hero — วิดีโอ/แบนเนอร์ + สโลแกน + ปุ่ม CTA</li>
+      <li>Featured products — การ์ดสินค้าเด่น + ปุ่ม “สั่งซื้อทาง LINE/Shopee/Lazada”</li>
+      <li>หมวดสินค้า tiles (Running / Track &amp; Field / Jogging)</li>
+      <li>แบนเนอร์แบรนด์ + วิดีโอ</li>
+      <li>About / เรื่องแบรนด์</li>
+      <li>บทความล่าสุด (Blog — ตัวดึงทราฟฟิก SEO)</li>
+      <li><b>ช่องทางสั่งซื้อ</b> — ปุ่มใหญ่ LINE / Shopee / Lazada</li>
+      <li>Footer — Help/Policy/Social + ไอคอนช่องทางขาย</li>
+    </ol>
+  </div>
+
+  <h2>🔌 ธีม + ปลั๊กอินที่ต้องลง</h2>
+  <div id="plugins"></div>
+
+  <h2>✅ ลำดับงาน (Step by step)</h2>
+  <div id="phases"></div>
+</div>
+<footer>จัดทำโดย: Pao — Digital Marketing Staff · ค่าที่ติ๊กถูกบันทึกอัตโนมัติในเบราว์เซอร์เครื่องนี้ · เนื้อหา/รูป/โค้ดของเว็บต้องเป็นของ Hiracer เอง (ยึดแค่โครง/เลย์เอาต์)</footer>
+</div>
+
+<script>
+const KEY="hiracerwp_v1_";
+const $=s=>document.querySelector(s);
+let boxes=[];
+
+const PLUGINS=[
+ {n:"ธีมเบา (Astra หรือ Kadence)",c:"theme"},
+ {n:"Elementor (+ Pro ถ้าต้องทำ Header/Footer/Product template)",c:"theme"},
+ {n:"WooCommerce โหมดแคตตาล็อก — ปิดตะกร้า/เช็กเอาต์ (หรือใช้ปลั๊กอินแคตตาล็อกสินค้าแทน)",c:"core"},
+ {n:"ปุ่มช่องทางขาย: LINE · Shopee · Lazada (ใส่ในแต่ละสินค้า + ปุ่มลอย LINE ทั้งเว็บ)",c:"core"},
+ {n:"Rank Math (หรือ Yoast) — SEO / sitemap / schema",c:"core"},
+ {n:"LiteSpeed Cache หรือ WP Rocket — cache/ความเร็ว",c:"core"},
+ {n:"ShortPixel / Imagify — บีบรูป + แปลง WebP",c:"core"},
+ {n:"Redirection — จัดการ 301",c:"core"},
+ {n:"UpdraftPlus — สำรองข้อมูล",c:"core"},
+ {n:"Wordfence — ความปลอดภัย",c:"core"},
+ {n:"WPForms / Contact Form 7 — ฟอร์มติดต่อ",c:"core"},
+ {n:"Google Site Kit หรือใส่ GTM/GA4/Pixel เอง",c:"core"},
+];
+const PHASES=[
+ {m:"เฟส 0 — เตรียม",note:"โดเมน + โฮสต์ + WordPress",t:[
+   "จดโดเมน + โฮสติ้ง (แนะนำโฮสต์ LiteSpeed, PHP 8.x)",
+   "ติดตั้ง WordPress + เปิด SSL (https)",
+   "★ ขึ้นหน้า Coming Soon หน้าเดียว พร้อมไอคอนลิงก์ LINE/Shopee/Lazada ระหว่างสร้างเว็บ|urg",
+   "ตั้ง permalink = ชื่อโพสต์, timezone ไทย",
+ ]},
+ {m:"เฟส 1 — วางระบบ",note:"ธีม + ปลั๊กอิน + staging",t:[
+   "ลงธีม (Astra/Kadence) + Elementor",
+   "ลง WooCommerce แล้วตั้งเป็นโหมดแคตตาล็อก (ปิดตะกร้า/เช็กเอาต์/ชำระเงิน/ขนส่ง)",
+   "ลงปลั๊กอินหลัก (SEO/cache/รูป/security/backup/redirect)",
+   "★ ตั้ง staging + ใส่รหัสผ่าน/noindex (กัน staging แย่ง index)|urg",
+ ]},
+ {m:"เฟส 2 — ดีไซน์ & แคตตาล็อก",note:"ทำหน้า + ใส่ปุ่มช่องทางขาย",t:[
+   "ตั้ง Global styles (สี/ฟอนต์แบรนด์ Hiracer)",
+   "ทำ Header + Footer + ปุ่มลอย LINE",
+   "สร้างหมวด + เพิ่มสินค้าเป็นข้อมูล (รูป/สเปก/ราคา) — ไม่มีตะกร้า",
+   "ใส่ปุ่ม “สั่งซื้อทาง LINE / Shopee / Lazada” ในทุกสินค้า",
+   "ประกอบหน้าแรก + เพจ About/FAQ/Size Chart/ช่องทางสั่งซื้อ/Contact + Blog",
+ ]},
+ {m:"เฟส 3 — SEO & Speed",note:"ทำให้เร็ว + ติดอันดับ",t:[
+   "ตั้ง Rank Math (title/meta/sitemap/schema) + ต่อ Search Console",
+   "ติด GTM/GA4/Pixel + ตั้ง event คลิกปุ่ม LINE/Shopee/Lazada (วัด conversion)",
+   "เปิด cache + บีบรูป WebP + lazy load → รัน PageSpeed ให้ถึง 75+",
+   "ตั้ง 301 redirect (ถ้ามี URL เก่าต้องย้าย)",
+ ]},
+ {m:"เฟส 4 — Go live",note:"ขึ้นจริงภายในครึ่งแรก ส.ค. (~15 ส.ค.) + เฝ้าดู",t:[
+   "ทดสอบมือถือ/responsive + ทดสอบปุ่มลิงก์ LINE/Shopee/Lazada ให้ไปถูกที่",
+   "★ เปิด index + ปิดหน้า Coming Soon/รหัสผ่าน staging → Go live ภายใน ~15 ส.ค. + ส่ง sitemap ใน Search Console|urg",
+   "เฝ้าดู Search Console 2–4 สัปดาห์ (coverage/errors)",
+ ]},
+];
+
+const PREP=[
+ {g:"บัญชี & บริการ",t:[
+   "ชื่อโดเมนที่ยืนยันแล้ว + บัญชี registrar|star",
+   "โฮสติ้ง (LiteSpeed) + ข้อมูลล็อกอินแผงควบคุม|star",
+   "อีเมลบริษัทสำหรับแอดมิน WordPress|star",
+ ]},
+ {g:"ช่องทางขาย (LINE / Shopee / Lazada)",t:[
+   "LINE OA / Official Account + ลิงก์เพิ่มเพื่อน (LINE ID/URL)|star",
+   "ลิงก์ร้าน Shopee|star",
+   "ลิงก์ร้าน Lazada|star",
+ ]},
+ {g:"แบรนด์ & ดีไซน์",t:[
+   "โลโก้ Hiracer — SVG/PNG พื้นโปร่ง (เวอร์ชันสี + ขาว)|star",
+   "สีแบรนด์ (โค้ด hex) + ฟอนต์ที่ใช้|star",
+   "favicon (ไอคอนแท็บเบราว์เซอร์)",
+   "รูป/วิดีโอ Hero + แบนเนอร์ (ของ Hiracer เอง)",
+ ]},
+ {g:"สินค้า (แคตตาล็อก — ให้ข้อมูล ไม่ขายบนเว็บ)",t:[
+   "รายการสินค้า: ชื่อรุ่น · ตัวเลือกสี/ไซซ์ · ราคา (โชว์เป็นข้อมูล)|star",
+   "รูปสินค้าแต่ละรุ่น/แต่ละสี (พื้นสะอาด หลายมุม)|star",
+   "คำอธิบาย + สเปกสินค้า (ของ Hiracer เอง)",
+   "ลิงก์สินค้าแต่ละตัวบน Shopee & Lazada (สำหรับปุ่มสั่งซื้อ)|star",
+   "โครงหมวด: Running / Track & Field / Jogging · ตารางไซซ์",
+ ]},
+ {g:"เนื้อหา & ข้อมูลติดต่อ",t:[
+   "ข้อความ About / เรื่องแบรนด์ · FAQ · บทความ Blog (ถ้ามี)",
+   "นโยบาย: Terms / Privacy (การซื้อ/คืนสินค้าอ้างอิงตามช่องทาง Shopee/Lazada/LINE)",
+   "ข้อมูลติดต่อ: ที่อยู่ · เบอร์ · LINE · อีเมล · แผนที่ · โซเชียล",
+ ]},
+ {g:"Tracking & SEO",t:[
+   "GA4 Measurement ID · GTM container · Meta Pixel ID",
+   "Search Console (เตรียม verify โดเมน)",
+   "คีย์เวิร์ดเป้าหมาย + URL เก่าที่ต้อง redirect (ถ้ามี)",
+ ]},
+];
+function renderPrep(){
+  const html=PREP.map((grp,gi)=>{
+    const items=grp.t.map((t,ti)=>{const id=KEY+"pr_"+gi+"_"+ti;
+      const star=t.endsWith("|star");const label=star?t.slice(0,-5):t;
+      return `<label class="task"><input type="checkbox" id="${id}"><span>${star?'<span class="tag-star">ต้องมีก่อน</span>':''}${label}</span></label>`;}).join("");
+    return `<div class="gsub">${grp.g}</div>${items}`;
+  }).join("");
+  $("#prep").innerHTML=`<div class="phase"><div class="phase-b">${html}</div></div>`;
+}
+function renderPlugins(){
+  const items=PLUGINS.map((p,i)=>{const id=KEY+"pl_"+i;
+    return `<label class="task"><input type="checkbox" id="${id}"><span>${p.n}</span></label>`;}).join("");
+  $("#plugins").innerHTML=`<div class="phase"><div class="phase-b">${items}</div></div>`;
+}
+function renderPhases(){
+  const root=$("#phases");
+  PHASES.forEach((ph,pi)=>{
+    const items=ph.t.map((t,ti)=>{const id=KEY+"ph_"+pi+"_"+ti;
+      const urg=t.endsWith("|urg"); const label=urg?t.slice(0,-4):t;
+      return `<label class="task"><input type="checkbox" id="${id}"><span>${label}${urg?'<span class="tag-urg">สำคัญ</span>':''}</span></label>`;}).join("");
+    const sec=document.createElement("div");sec.className="phase";
+    sec.innerHTML=`<div class="phase-h" onclick="toggleP(this)"><div><h3>${ph.m}</h3><div class="pnote">${ph.note}</div></div><div class="pprog" data-pi="${pi}">0/0</div></div><div class="phase-b">${items}</div>`;
+    root.appendChild(sec);
+  });
+}
+function toggleP(h){const b=h.nextElementSibling;b.style.display=b.style.display==="none"?"block":"none";}
+function syncLabel(b){b.closest('.task').classList.toggle('done',b.checked);}
+function bind(){
+  boxes=[...document.querySelectorAll('.task input')];
+  boxes.forEach(b=>{b.checked=localStorage.getItem(b.id)==="1";syncLabel(b);
+    b.addEventListener('change',()=>{localStorage.setItem(b.id,b.checked?"1":"0");syncLabel(b);update();});});
+}
+function update(){
+  const total=boxes.length,done=boxes.filter(b=>b.checked).length,pct=total?Math.round(done/total*100):0;
+  $("#ovBar").style.width=pct+"%";$("#ovText").textContent=`${done} / ${total} (${pct}%)`;
+  document.querySelectorAll('.pprog').forEach(el=>{const p=KEY+"ph_"+el.dataset.pi+"_";
+    const ms=boxes.filter(b=>b.id.startsWith(p));el.textContent=`${ms.filter(b=>b.checked).length}/${ms.length}`;});
+}
+function resetAll(){if(!confirm("ล้างการติ๊กทั้งหมด?"))return;boxes.forEach(b=>{b.checked=false;localStorage.setItem(b.id,"0");syncLabel(b);});update();}
+
+renderPrep();renderPlugins();renderPhases();bind();update();
+</script>
+</body>
+</html>
