@@ -54,14 +54,14 @@
 <div class="page">
 <header>
   <h1>🔁 แผนสร้างเว็บ WordPress — Delta (รีแบรนด์จาก HK)</h1>
-  <div class="sub">สร้างเว็บแคตตาล็อก Delta + ย้าย SEO จาก hkmotorguide.com · ทำเว็บ/ย้ายข้อมูลใน ส.ค. และ Go live ใน ก.ย. 2026 · Digital Marketing: Pao</div>
+  <div class="sub">เว็บแคตตาล็อก Delta <b>ขายมอเตอร์เรือ</b> (deltaboatmotor.com) + ย้าย SEO จาก hkmotorguide.com · ทำเว็บ/ย้ายข้อมูลใน ส.ค. และ Go live ใน ก.ย. 2026 · Digital Marketing: Pao</div>
   <div class="bar-wrap"><div class="bar-top"><span>ความคืบหน้ารวม</span><span id="ovText">0 / 0 (0%)</span></div><div class="bar"><i id="ovBar"></i></div></div>
 </header>
 <div class="body">
   <div class="actions"><button class="btn" onclick="resetAll()">ล้างการติ๊ก</button><button class="btn print" onclick="window.print()">🖨 พิมพ์ / PDF</button></div>
 
   <div class="callout">
-    <b>สิ่งที่ต่างจากเว็บทั่วไป:</b> Delta คือการ <b>รีแบรนด์จาก HK</b> — เว็บเดิม hkmotorguide.com เป็นบทความ + ข้อมูลสินค้าที่มีอันดับอยู่ ดังนั้นหัวใจของงานนี้คือ <b>ย้ายคอนเทนต์มา + ทำ 301 redirect</b> เพื่อรักษาพลัง SEO เดิม ไม่ให้อันดับหาย
+    <b>สิ่งที่ต่างจากเว็บทั่วไป:</b> Delta คือการ <b>รีแบรนด์จาก HK เป็นเว็บขายมอเตอร์เรือ</b> — เว็บเดิม hkmotorguide.com เป็นบทความ + ข้อมูลสินค้าที่มีอันดับอยู่ ดังนั้นหัวใจของงานนี้คือ <b>ย้ายคอนเทนต์มา + ทำ 301 redirect</b> เพื่อรักษาพลัง SEO เดิม ไม่ให้อันดับหาย
   </div>
 
   <h2>📦 สิ่งที่ต้องเตรียม (ก่อน/ระหว่างสร้าง)</h2>
@@ -73,7 +73,7 @@
     <b>เว็บนี้เป็น "เว็บให้ข้อมูล" (แคตตาล็อก)</b> — ไม่มีตะกร้า/เช็กเอาต์/ชำระเงิน/ขนส่งบนเว็บ · ซื้อขายผ่าน <b>LINE · Shopee · Lazada</b> (แต่ละสินค้ามีปุ่มลิงก์ไปช่องทางเหล่านี้)
   </div>
   <div class="info">
-    <b>หน้าหลัก:</b> Home · แคตตาล็อกสินค้า Delta (ให้ข้อมูล) · หมวดสินค้า · หน้าสินค้าเดี่ยว (ข้อมูล + ปุ่มสั่งซื้อ LINE/Shopee/Lazada) · <b>Blog / บทความ (ย้ายจาก HK)</b> · About · FAQ · ช่องทางสั่งซื้อ (Where to Buy) · Contact · นโยบาย (Terms/Privacy)
+    <b>หน้าหลัก:</b> Home · แคตตาล็อกสินค้า Delta (ให้ข้อมูล) · หมวดสินค้า (มอเตอร์ท้ายเรือไฟฟ้า / มอเตอร์ลากเรือ / แบตเตอรี่ / อุปกรณ์เสริม-อะไหล่) · หน้าสินค้าเดี่ยว (ข้อมูล + ปุ่มสั่งซื้อ LINE/Shopee/Lazada) · <b>Blog / บทความ (ย้ายจาก HK)</b> · About · FAQ · ช่องทางสั่งซื้อ (Where to Buy) · Contact · นโยบาย (Terms/Privacy)
     <div style="margin-top:12px"><b>เลย์เอาต์หน้าแรก (บน→ล่าง):</b></div>
     <ol class="sec-list">
       <li>Header/Nav — โลโก้ Delta · เมนู · ค้นหา · ปุ่มลอย LINE</li>
@@ -104,7 +104,7 @@ let boxes=[];
 
 const PREP=[
  {g:"บัญชี & บริการ",t:[
-   "ชื่อโดเมน Delta ที่ยืนยันแล้ว + บัญชี registrar|star",
+   "ชื่อโดเมน Delta (deltaboatmotor.com) + บัญชี registrar|star",
    "โฮสติ้ง (LiteSpeed) + ข้อมูลล็อกอิน|star",
    "สิทธิ์เข้า Google Search Console ของ hkmotorguide.com เดิม|star",
  ]},
@@ -170,7 +170,7 @@ function renderPlugins(){
 
 const PHASES=[
  {m:"เฟส 0 — เตรียม",note:"โดเมน + โฮสต์ + WordPress",t:[
-   "จดโดเมน Delta + โฮสติ้ง (LiteSpeed, PHP 8.x)",
+   "จดโดเมน deltaboatmotor.com + โฮสติ้ง (LiteSpeed, PHP 8.x)",
    "ติดตั้ง WordPress + เปิด SSL (https)",
    "★ ขึ้นหน้า Coming Soon หน้าเดียว พร้อมไอคอนลิงก์ LINE/Shopee/Lazada ระหว่างสร้างเว็บ|urg",
    "ตั้ง permalink = ชื่อโพสต์, timezone ไทย",
