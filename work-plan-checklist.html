@@ -149,7 +149,7 @@ function renderSites(){
 /* ---------- checklists ---------- */
 const PLAN_WEB=[
  {m:"เดือน 1 — กรกฎาคม",note:"เริ่มเว็บเร่งด่วน + วางราก",groups:[
-   {n:"Coming Soon (ทุกเว็บเร่งด่วน)",c:"g-urg",t:["ขึ้นหน้า Coming Soon พร้อมไอคอน LINE/Shopee/Lazada สำหรับ Hiracer, Delta และ EDEN"]},
+   {n:"Coming Soon (ทุกเว็บเร่งด่วน)",c:"g-urg",t:["ออกแบบหน้า Coming Soon + ไอคอน LINE/Shopee/Lazada + ติด tracking ปุ่ม (Hiracer, Delta)","ขึ้นหน้า Coming Soon ของ EDEN"]},
    {n:"Hiracer (รีบ)",c:"g-urg",t:["จดโดเมน hiracerthailand.com + โฮสต์","ถอดโครงสร้าง + ดีไซน์เว็บ Hiracer","ทำหน้าแรก + แคตตาล็อกสินค้าหลัก"]},
    {n:"Delta/HK (รีบ)",c:"g-urg",t:["จดโดเมน deltaspeedlab.com + โฮสต์","ถอดโครง HK → ร่างโครงเว็บ Delta (มอเตอร์เรือ)","เริ่มทำหน้าแรก Delta","วางแผน 301 redirect (hkmotorguide.com)"]},
    {n:"EDEN (รีบ)",c:"g-urg",t:["ตรวจ/แก้ปัญหาเร่งด่วนเว็บ EDEN"]},
@@ -200,10 +200,18 @@ function renderPlan(rootId,PLAN,pfx){
 }
 function syncLabel(b){b.closest('.task').classList.toggle('done',b.checked);}
 function toggleMonth(h){const b=h.nextElementSibling;b.style.display=b.style.display==="none"?"block":"none";}
+/* งานที่ทำเสร็จแล้วจริง → ติ๊กให้ตรง (จดโดเมน+โฮสต์ Hiracer/Delta · ออกแบบ Coming Soon · ติด tracking ปุ่ม) */
+const DONE=new Set(["web_0_0_0","web_0_1_0","web_0_2_0"].map(s=>KEY+s));
+const SEED="dmplan_seed_v3";
 function bindBoxes(){
   boxes=[...document.querySelectorAll('.task input')];
-  boxes.forEach(b=>{b.checked=localStorage.getItem(b.id)==="1";syncLabel(b);
+  const seeded=localStorage.getItem(SEED)==="1";
+  boxes.forEach(b=>{
+    if(!seeded){const on=DONE.has(b.id);b.checked=on;localStorage.setItem(b.id,on?"1":"0");}
+    else b.checked=localStorage.getItem(b.id)==="1";
+    syncLabel(b);
     b.addEventListener('change',()=>{localStorage.setItem(b.id,b.checked?"1":"0");syncLabel(b);update();});});
+  if(!seeded)localStorage.setItem(SEED,"1");
 }
 function update(){
   const total=boxes.length,done=boxes.filter(b=>b.checked).length,pct=total?Math.round(done/total*100):0;

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DELTA — Coming Soon</title>
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* CI Delta: หัวเรื่อง Montserrat · ไทย LINE Seed Sans TH (สำรอง Noto Sans Thai) · แดง #E32428 */
+  :root{
+    --red:#E32428; --gray:#AAAAAA; --ink:#ffffff; --muted:rgba(255,255,255,.62); --base:#0a0507;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:'Montserrat','LINE Seed Sans TH','LINESeedSansTH','Noto Sans Thai',sans-serif;
+    min-height:100%;position:relative;overflow-x:hidden;background:var(--base);color:var(--ink)}
+  :lang(th),.th{font-family:'LINE Seed Sans TH','LINESeedSansTH','Noto Sans Thai','Montserrat',sans-serif}
+
+  .bg{position:fixed;inset:0;z-index:0;background-position:center;background-size:cover;
+    background-image:var(--bg-image, radial-gradient(120% 120% at 75% 45%,#4a0810,#0a0507 62%));}
+  .bg::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(120% 120% at 50% 45%, rgba(6,3,5,.35) 0%, rgba(6,3,5,.6) 70%, rgba(6,3,5,.82) 100%);}
+  .grain{position:fixed;inset:0;z-index:1;opacity:.05;pointer-events:none;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  .shell{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;padding:48px 22px;gap:0}
+  /* โลโก้/แบรนด์ */
+  .brand{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:.42em;text-transform:uppercase;margin-bottom:auto;padding-top:6px}
+  .brand img{max-height:40px}
+  .middle{margin:auto 0;display:flex;flex-direction:column;align-items:center;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+  .eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:16px}
+  h1{font-weight:300;font-size:clamp(44px,9vw,104px);letter-spacing:.14em;text-transform:uppercase;line-height:1}
+  .tag{margin:20px auto 0;max-width:520px;font-weight:300;font-size:clamp(14px,2vw,17px);line-height:1.6;color:var(--muted)}
+
+  /* ---- ring countdown ---- */
+  .count{display:flex;gap:clamp(14px,3vw,34px);margin-top:38px;flex-wrap:wrap;justify-content:center}
+  .ru{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .ring{position:relative;width:clamp(78px,11vw,116px);height:clamp(78px,11vw,116px)}
+  .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+  .ring circle{fill:none;stroke-width:3}
+  .ring .track{stroke:rgba(255,255,255,.18)}
+  .ring .prog{stroke:#fff;stroke-linecap:round;transition:stroke-dashoffset .5s linear}
+  .ring .num{position:absolute;inset:0;display:grid;place-items:center;font-weight:500;font-size:clamp(20px,3vw,30px)}
+  .ru .lab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+  /* ---- ไอคอนช่องทาง (แถวเดียว วงกลม) ---- */
+  .links{display:flex;gap:clamp(10px,1.6vw,14px);justify-content:center;flex-wrap:wrap;margin-top:40px}
+  .links a{width:clamp(44px,6vw,54px);height:clamp(44px,6vw,54px);display:grid;place-items:center;border-radius:50%;
+    border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);color:#fff;text-decoration:none;position:relative;transition:.25s}
+  .links a svg{width:clamp(19px,2.4vw,22px);height:clamp(19px,2.4vw,22px);fill:currentColor}
+  .links a:hover{transform:translateY(-3px);background:var(--ch,var(--red));border-color:transparent;box-shadow:0 10px 26px rgba(0,0,0,.5)}
+  .links a::after{content:attr(data-label);position:absolute;top:calc(100% + 9px);left:50%;transform:translateX(-50%);
+    font-size:10px;letter-spacing:.1em;color:var(--muted);opacity:0;transition:.2s;white-space:nowrap;pointer-events:none}
+  .links a:hover::after{opacity:1}
+
+  .foot{margin-top:auto;padding-top:24px;font-size:11.5px;letter-spacing:.05em;color:var(--muted)}
+</style>
+</head>
+<body>
+  <div class="bg" id="bg"></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <div class="brand" id="mark"></div>
+
+    <div class="middle">
+      <div class="eyebrow th" id="eyebrow"></div>
+      <h1 id="headline">Coming Soon</h1>
+      <p class="tag th" id="tagline"></p>
+      <div class="count" id="count"></div>
+      <div class="links" id="links"></div>
+    </div>
+
+    <div class="foot th" id="copyright"></div>
+  </div>
+
+<script>
+/* ================= แก้ตรงนี้ที่เดียว ================= */
+const CONFIG = {
+  brandName: "DELTA",
+  logo: "assets/delta-logo.png",              // โลโก้ Delta (ขาว พื้นใส)
+  bgImage: "assets/delta-bg.jpg",
+  bgImageMobile: "assets/delta-bg-mobile.jpg",
+  eyebrow: "เปิดตัวเร็ว ๆ นี้",
+  headline: "Coming Soon",
+  tagline: "เว็บไซต์มอเตอร์เรือ Delta กำลังจะมา ระหว่างนี้สั่งซื้อและติดตามเราได้แล้ววันนี้ผ่านช่องทางด้านล่าง",
+  launchDate: "2026-09-15T09:00:00",          // วันเปิดตัว (เว้นว่าง = ซ่อนนับถอยหลัง)
+  copyright: "© 2026 DELTA · มอเตอร์เรือ",
+  ga4Id: "",                                  // ⭐ สร้าง GA4 ของ Delta แล้วใส่ G-XXXX
+  metaPixelId: "",
+  utmCampaign: "delta_comingsoon",
+  // ปุ่มช่องทางขาย (มีข้อความ)
+  channels: [
+    { key:"line",   href:"#" },
+    { key:"shopee", href:"#" },
+    { key:"lazada", href:"#" },
+  ],
+  // ไอคอนโซเชียล (ติดตาม)
+  socials: [
+    { key:"facebook",  href:"#" },
+    { key:"instagram", href:"#" },
+    { key:"youtube",   href:"#" },
+    { key:"tiktok",    href:"#" },
+  ],
+};
+/* =================================================== */
+
+const ICON = {
+  line:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3C6.9 3 2.75 6.35 2.75 10.48c0 3.7 3.29 6.8 7.73 7.39.3.06.71.2.81.46.09.24.06.6.03.85l-.13.79c-.04.24-.19.93.82.51 1-.42 5.42-3.19 7.39-5.46 1.36-1.49 2-3 2-4.94C23.23 6.35 17.1 3 12 3Z"/></svg>',
+  shopee:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6a3.6 3.6 0 0 0-3.6 3.6v.4H5.9L5 20.4a1 1 0 0 0 1 1.05h12a1 1 0 0 0 1-1.05L18.1 6.6h-2.5v-.4A3.6 3.6 0 0 0 12 2.6Zm0 1.6a2 2 0 0 1 2 2v.4h-4v-.4a2 2 0 0 1 2-2Z"/></svg>',
+  lazada:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 4h2.1l.55 2.2H20a1 1 0 0 1 .97 1.24l-1.4 5.6A1.6 1.6 0 0 1 18 14.3H8.3l-.26 1.3H19v1.6H6.9a1 1 0 0 1-.98-1.2l.63-3.1L4.2 5.6H3V4Z"/><circle fill="currentColor" cx="9" cy="19.4" r="1.4"/><circle fill="currentColor" cx="17" cy="19.4" r="1.4"/></svg>',
+  facebook:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>',
+  instagram:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.9c2.94 0 3.29.01 4.45.06 1.07.05 1.65.23 2.04.38.51.2.88.44 1.26.82.38.38.62.75.82 1.26.15.39.33.97.38 2.04.05 1.16.06 1.51.06 4.45s-.01 3.29-.06 4.45c-.05 1.07-.23 1.65-.38 2.04-.2.51-.44.88-.82 1.26-.38.38-.75.62-1.26.82-.39.15-.97.33-2.04.38-1.16.05-1.51.06-4.45.06s-3.29-.01-4.45-.06c-1.07-.05-1.65-.23-2.04-.38a3.4 3.4 0 0 1-1.26-.82 3.4 3.4 0 0 1-.82-1.26c-.15-.39-.33-.97-.38-2.04C2.91 15.29 2.9 14.94 2.9 12s.01-3.29.06-4.45c.05-1.07.23-1.65.38-2.04.2-.51.44-.88.82-1.26.38-.38.75-.62 1.26-.82.39-.15.97-.33 2.04-.38C8.71 2.91 9.06 2.9 12 2.9Zm0 3.05A6.05 6.05 0 1 0 18.05 12 6.05 6.05 0 0 0 12 5.95Zm0 9.98A3.93 3.93 0 1 1 15.93 12 3.93 3.93 0 0 1 12 15.93Zm6.29-10.2a1.41 1.41 0 1 0 1.41 1.41 1.41 1.41 0 0 0-1.41-1.41Z"/></svg>',
+  youtube:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.83.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.83-.43a2.5 2.5 0 0 0 1.77-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3Z"/></svg>',
+  tiktok:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 5.8A4.28 4.28 0 0 1 15.6 3h-3.1v11.9a2.5 2.5 0 1 1-2.5-2.5c.26 0 .5.04.74.11V9.3a5.6 5.6 0 1 0 4.86 5.55V8.9a7.3 7.3 0 0 0 4.2 1.34V7.1a4.28 4.28 0 0 1-3.2-1.3Z"/></svg>',
+};
+const LABEL={line:"LINE",shopee:"Shopee",lazada:"Lazada",facebook:"Facebook",instagram:"Instagram",youtube:"YouTube",tiktok:"TikTok"};
+const COLOR={line:"#06C755",shopee:"#EE4D2D",lazada:"#1A0DAB",facebook:"#1877F2",instagram:"#E4405F",tiktok:"#111111",youtube:"#FF0000"};
+
+const $=id=>document.getElementById(id);
+if(CONFIG.bgImage) $('bg').style.setProperty('--bg-image',`url("${CONFIG.bgImage}")`);
+if(CONFIG.bgImageMobile) $('bg').style.setProperty('--bg-image-mobile',`url("${CONFIG.bgImageMobile}")`);
+$('mark').innerHTML = CONFIG.logo ? `<img src="${CONFIG.logo}" alt="${CONFIG.brandName}">` : CONFIG.brandName;
+$('eyebrow').textContent = CONFIG.eyebrow;
+$('headline').textContent = CONFIG.headline;
+$('tagline').textContent = CONFIG.tagline;
+$('copyright').textContent = CONFIG.copyright;
+document.title = CONFIG.brandName + " — Coming Soon";
+
+function utm(href,key){ if(!CONFIG.utmCampaign||!href||href==="#") return href;
+  return href+(href.includes("?")?"&":"?")+"utm_source=comingsoon&utm_medium="+key+"&utm_campaign="+encodeURIComponent(CONFIG.utmCampaign);}
+
+// ไอคอนช่องทาง (ช่องทางขาย + โซเชียล) แถวเดียว
+$('links').innerHTML = [...CONFIG.channels,...CONFIG.socials].map(x=>
+  `<a data-ch="${x.key}" data-label="${LABEL[x.key]||x.key}" href="${utm(x.href,x.key)}" target="_blank" rel="noopener" aria-label="${LABEL[x.key]||x.key}" style="--ch:${COLOR[x.key]||'var(--red)'}">${ICON[x.key]||''}</a>`).join('');
+
+/* ---- ring countdown ---- */
+(function(){
+  const el=$('count'); if(!CONFIG.launchDate){el.style.display='none';return;}
+  const target=new Date(CONFIG.launchDate).getTime();
+  const R=44, C=2*Math.PI*R;
+  const units=[['days',864e5,365],['hours',36e5,24],['minutes',6e4,60],['seconds',1e3,60]];
+  el.innerHTML=units.map(([lab])=>`<div class="ru"><div class="ring">
+    <svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="${R}"></circle>
+    <circle class="prog" cx="50" cy="50" r="${R}" stroke-dasharray="${C}" stroke-dashoffset="${C}" data-u="${lab}"></circle></svg>
+    <div class="num" data-n="${lab}">0</div></div><div class="lab">${lab}</div></div>`).join('');
+  function tick(){
+    let d=target-Date.now(); if(d<0)d=0;
+    const vals={days:Math.floor(d/864e5),hours:Math.floor(d/36e5)%24,minutes:Math.floor(d/6e4)%60,seconds:Math.floor(d/1e3)%60};
+    units.forEach(([lab,,max])=>{
+      el.querySelector(`[data-n="${lab}"]`).textContent=String(vals[lab]).padStart(2,'0');
+      const frac=Math.min(vals[lab]/max,1);
+      el.querySelector(`[data-u="${lab}"]`).style.strokeDashoffset=C*(1-frac);
+    });
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+/* ---- GA4 / Pixel + tracking ---- */
+(function(){
+  if(CONFIG.ga4Id){const s=document.createElement('script');s.async=true;
+    s.src="https://www.googletagmanager.com/gtag/js?id="+CONFIG.ga4Id;document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
+    gtag('js',new Date());gtag('config',CONFIG.ga4Id);}
+  if(CONFIG.metaPixelId){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;
+    n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init',CONFIG.metaPixelId);fbq('track','PageView');}
+  document.querySelectorAll('[data-ch]').forEach(a=>a.addEventListener('click',function(){
+    const ch=a.dataset.ch;
+    if(window.gtag) gtag('event','channel_click',{channel:ch,page:'coming_soon',brand:CONFIG.brandName});
+    if(window.fbq)  fbq('trackCustom','ChannelClick',{channel:ch,brand:CONFIG.brandName});
+  }));
+})();
+</script>
+</body>
+</html>
