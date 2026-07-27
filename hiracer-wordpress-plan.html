@@ -61,12 +61,14 @@
   <div class="actions"><button class="btn" onclick="resetAll()">ล้างการติ๊ก</button><button class="btn print" onclick="window.print()">🖨 พิมพ์ / PDF</button></div>
 
   <div style="border:1px solid #b7e6c9;background:#e9f8ef;border-radius:12px;padding:14px 18px;font-size:13px;color:#0f7a45;margin-bottom:14px">
-    <b>✔ ความคืบหน้าล่าสุด (25 ก.ค. 2026)</b>
+    <b>🎉 เว็บขึ้นออนไลน์แล้ว — https://hiracerthailand.com (27 ก.ค. 2026)</b>
     <ul style="margin:6px 0 0;padding-left:18px;color:#166b42">
-      <li><b>ออกแบบหน้า Home เสร็จแล้ว</b> — hero วิดีโอเต็มจอ · สินค้า 2 รุ่น (Hi-Intensity, Higo) พร้อมภาพจริง + สวอตช์สี · หมวด Jogging/Running/Racing (ภาพแนวตั้ง) · แบนเนอร์วิดีโอ Run Further · About · บทความ · ปุ่มช่องทางขายทุกจุด</li>
-      <li><b>ทำหน้า Coming Soon เสร็จ</b> + ติด GA4 tracking ปุ่มช่องทางขาย (event <code>channel_click</code>) · แพ็ก zip พร้อมอัปโหลดแล้ว</li>
-      <li><b>ตั้ง Local server (LocalWP + Elementor)</b> สร้างเว็บในเครื่องระหว่างรอโฮสต์ — ไม่กิน inode โฮสต์บริษัท · import หน้า Home เข้า Elementor แล้ว</li>
-      <li>⏳ <b>รอ:</b> ฝ่ายบัญชีจ่ายค่าโดเมน + โฮสต์ (Flash-1) · ลิงก์จริง LINE/Shopee/Lazada</li>
+      <li><b>โดเมน + โฮสต์พร้อมใช้งาน</b> — HostNeverDie Flash-1 · DirectAdmin พอร์ต 4229 · user <code>hiracert</code> · inode 215/200,000 (0.1%) · Disk 2.68/12,000 MB</li>
+      <li><b>หน้า Coming Soon ขึ้นบนโดเมนจริงแล้ว</b> — อัปโหลดเข้า public_html · permission ไฟล์ 644 / โฟลเดอร์ 755</li>
+      <li><b>SSL Let's Encrypt ติดตั้งแล้ว</b> (hiracerthailand.com + www) · เปิด Force SSL with https redirect เรียบร้อย</li>
+      <li><b>ใส่ลิงก์ช่องทางจริง 5 ตัว</b> — LINE · Shopee · Facebook · TikTok · YouTube · GA4 <code>channel_click</code> + UTM ทำงานแล้ว</li>
+      <li><b>ออกแบบหน้า Home เสร็จ</b> — hero วิดีโอ · สินค้า 2 รุ่น · หมวด Jogging/Running/Racing · Run Further · About · บทความ (ยังอยู่บน LocalWP รอทำหน้าที่เหลือ)</li>
+      <li>⏳ <b>รอ:</b> ลิงก์ Lazada + Instagram · ราคาขาย + D-Day · ทำหน้าสินค้า/About/บทความให้ครบ</li>
     </ul>
   </div>
 
@@ -123,12 +125,13 @@ const PLUGINS=[
  {n:"Google Site Kit หรือใส่ GTM/GA4/Pixel เอง",c:"core"},
 ];
 const PHASES=[
- {m:"เฟส 0 — เตรียม",note:"โดเมน + โฮสต์ + WordPress",t:[
-   "✔ ทำเรื่องจดโดเมน hiracerthailand.com + โฮสต์ Flash-1 (รอฝ่ายบัญชีจ่ายเงิน)|done",
-   "✔ ตั้ง Local server (LocalWP) + ติดตั้ง WordPress ในเครื่อง — สร้างเว็บระหว่างรอโฮสต์|done",
-   "✔ ทำหน้า Coming Soon (Hiracer + Delta) + ติด tracking ปุ่มช่องทางขาย · แพ็ก zip พร้อมอัปโหลด|done",
-   "ติดตั้ง WordPress บนโฮสต์จริง + เปิด SSL (Let's Encrypt)",
-   "อัปโหลดหน้า Coming Soon ขึ้นโดเมนจริง (ชี้ DNS → public_html)",
+ {m:"เฟส 0 — เตรียม",note:"โดเมน + โฮสต์ + Coming Soon ✅ เสร็จแล้ว",t:[
+   "✔ ได้โดเมน hiracerthailand.com + โฮสต์ HostNeverDie Flash-1 แล้ว|done",
+   "✔ ตั้ง Local server (LocalWP) + ติดตั้ง WordPress ในเครื่อง|done",
+   "✔ ทำหน้า Coming Soon + ติด tracking ปุ่มช่องทางขาย + ใส่ลิงก์จริง 5 ช่องทาง|done",
+   "✔ อัปโหลด Coming Soon ขึ้นโดเมนจริง (public_html) + ตั้ง permission 644/755|done",
+   "✔ เปิด SSL Let's Encrypt (hiracerthailand.com + www) + Force SSL with https redirect|done",
+   "ติดตั้ง WordPress บนโฮสต์จริง (ตอนทำเว็บจริง — ใช้ Installatron ได้)",
    "ตั้ง permalink = ชื่อโพสต์, timezone ไทย",
  ]},
  {m:"เฟส 1 — วางระบบ",note:"ธีม + ปลั๊กอิน",t:[
@@ -161,9 +164,10 @@ const PHASES=[
 
 const PREP=[
  {g:"บัญชี & บริการ",t:[
-   "ชื่อโดเมน hiracerthailand.com + บัญชี registrar — ทำเรื่องซื้อแล้ว ⏳ รอฝ่ายบัญชีจ่ายเงิน|star",
-   "โฮสติ้ง HostNeverDie Flash-1 (LiteSpeed) — ทำเรื่องแล้ว ⏳ รอจ่ายเงิน|star",
+   "ชื่อโดเมน hiracerthailand.com — ใช้งานได้แล้ว|star|done",
+   "โฮสติ้ง HostNeverDie Flash-1 — ใช้งานได้แล้ว (DirectAdmin :4229 · user hiracert)|star|done",
    "อีเมลบริษัทสำหรับแอดมิน WordPress|star|done",
+   "SSL Let's Encrypt + Force HTTPS|done",
  ]},
  {g:"ช่องทางขาย (LINE / Shopee / Lazada)",t:[
    "LINE OA / Official Account + ลิงก์เพิ่มเพื่อน (LINE ID/URL)|star",
@@ -228,7 +232,7 @@ function renderPhases(){
 }
 function toggleP(h){const b=h.nextElementSibling;b.style.display=b.style.display==="none"?"block":"none";}
 function syncLabel(b){b.closest('.task').classList.toggle('done',b.checked);}
-const SEED="hiracerwp_seed_v2";
+const SEED="hiracerwp_seed_v3";
 function bind(){
   boxes=[...document.querySelectorAll('.task input')];
   const seeded=localStorage.getItem(SEED)==="1";

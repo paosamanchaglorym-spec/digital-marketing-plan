@@ -149,8 +149,8 @@ function renderSites(){
 /* ---------- checklists ---------- */
 const PLAN_WEB=[
  {m:"เดือน 1 — กรกฎาคม",note:"เริ่มเว็บเร่งด่วน + วางราก",groups:[
-   {n:"Coming Soon (ทุกเว็บเร่งด่วน)",c:"g-urg",t:["ออกแบบหน้า Coming Soon + ไอคอน LINE/Shopee/Lazada + ติด tracking ปุ่ม (Hiracer, Delta)","ขึ้นหน้า Coming Soon ของ EDEN"]},
-   {n:"Hiracer (รีบ)",c:"g-urg",t:["จดโดเมน hiracerthailand.com + โฮสต์","ถอดโครงสร้าง + ดีไซน์เว็บ Hiracer","ทำหน้าแรก + แคตตาล็อกสินค้าหลัก"]},
+   {n:"Coming Soon (ทุกเว็บเร่งด่วน)",c:"g-urg",t:["ออกแบบหน้า Coming Soon + ไอคอน LINE/Shopee/Lazada + ติด tracking ปุ่ม (Hiracer, Delta)","🎉 ขึ้นหน้า Coming Soon บน hiracerthailand.com จริงแล้ว + SSL + Force HTTPS","ขึ้นหน้า Coming Soon ของ Delta (รอโดเมน)","ขึ้นหน้า Coming Soon ของ EDEN"]},
+   {n:"Hiracer (รีบ)",c:"g-urg",t:["จดโดเมน hiracerthailand.com + โฮสต์","ถอดโครงสร้าง + ดีไซน์เว็บ Hiracer","ออกแบบหน้า Home (hero วิดีโอ · สินค้า 2 รุ่น · หมวด Jogging/Running/Racing)","ตั้ง Local server (LocalWP + Elementor) สร้างเว็บจริง","ทำหน้าที่เหลือ (สินค้าเดี่ยว/About/Size Chart/บทความ)"]},
    {n:"Delta/HK (รีบ)",c:"g-urg",t:["จดโดเมน deltaspeedlab.com + โฮสต์","ถอดโครง HK → ร่างโครงเว็บ Delta (มอเตอร์เรือ)","เริ่มทำหน้าแรก Delta","วางแผน 301 redirect (hkmotorguide.com)"]},
    {n:"EDEN (รีบ)",c:"g-urg",t:["ตรวจ/แก้ปัญหาเร่งด่วนเว็บ EDEN"]},
    {n:"Tracking (เว็บ)",c:"g-track",t:["ติดตั้ง/ตรวจ GTM · GA4 · Pixel ทุกเว็บหลัก"]},
@@ -201,8 +201,12 @@ function renderPlan(rootId,PLAN,pfx){
 function syncLabel(b){b.closest('.task').classList.toggle('done',b.checked);}
 function toggleMonth(h){const b=h.nextElementSibling;b.style.display=b.style.display==="none"?"block":"none";}
 /* งานที่ทำเสร็จแล้วจริง → ติ๊กให้ตรง (จดโดเมน+โฮสต์ Hiracer/Delta · ออกแบบ Coming Soon · ติด tracking ปุ่ม) */
-const DONE=new Set(["web_0_0_0","web_0_1_0","web_0_2_0"].map(s=>KEY+s));
-const SEED="dmplan_seed_v3";
+const DONE=new Set([
+  "web_0_0_0","web_0_0_1",           // Coming Soon: ออกแบบ + ขึ้น hiracerthailand.com จริง
+  "web_0_1_0","web_0_1_1","web_0_1_2","web_0_1_3",  // Hiracer: โดเมน+โฮสต์ · ดีไซน์ · หน้า Home · LocalWP
+  "web_0_2_0",                        // Delta: โดเมน + โฮสต์
+].map(s=>KEY+s));
+const SEED="dmplan_seed_v4";
 function bindBoxes(){
   boxes=[...document.querySelectorAll('.task input')];
   const seeded=localStorage.getItem(SEED)==="1";
