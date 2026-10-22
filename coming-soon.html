@@ -5,16 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coming Soon</title>
 <meta name="robots" content="index,follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* ---- Figtree (ฟอนต์ CI) ฝังในเว็บเอง ---- */
-  @font-face{font-family:'Figtree';src:url('assets/fonts/Figtree-Light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
-  @font-face{font-family:'Figtree';src:url('assets/fonts/Figtree-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-  @font-face{font-family:'Figtree';src:url('assets/fonts/Figtree-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
-  @font-face{font-family:'Figtree';src:url('assets/fonts/Figtree-SemiBold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
-  @font-face{font-family:'Figtree';src:url('assets/fonts/Figtree-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+
+  /* ---- ฟอนต์ CI: Conthrax (TOPIC) · Michroma (HEADLINE) · Space Mono (BODY) · Sukhumvit (ไทย) ---- */
+  @font-face{font-family:'Conthrax';src:url('assets/fonts/Conthrax-SemiBold.woff2') format('woff2');font-weight:400 700;font-display:swap}
+  @font-face{font-family:'Michroma';src:url('assets/fonts/Michroma-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Space Mono';src:url('assets/fonts/SpaceMono-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Space Mono';src:url('assets/fonts/SpaceMono-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
   /* ---- Sukhumvit Set (ฟอนต์ไทยตาม CI) ---- */
   @font-face{font-family:'SukhumvitSet';src:url('assets/fonts/SukhumvitSet-Light.woff2') format('woff2');font-weight:300;font-display:swap}
   @font-face{font-family:'SukhumvitSet';src:url('assets/fonts/SukhumvitSet-Text.woff2') format('woff2');font-weight:400;font-display:swap}
@@ -26,7 +23,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   /* ฟอนต์ตาม CI: Anton (หัวเรื่อง) · Figtree (อังกฤษ) · Sukhumvit (ไทย) — สำรอง Kanit */
-  body{font-family:'Figtree','SukhumvitSet','Sukhumvit Set','Kanit',-apple-system,sans-serif;min-height:100%;position:relative;overflow-x:hidden}
+  body{font-family:'Space Mono','SukhumvitSet',ui-monospace,monospace;min-height:100%;position:relative;overflow-x:hidden}
 
   /* ---------- ธีม ---------- */
   body[data-theme="light"]{ --ink:#14181c; --muted:rgba(20,24,28,.58); --line:rgba(20,24,28,.15); --base:#e9ebee;
@@ -44,7 +41,7 @@
   .shell{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;padding:clamp(22px,4vw,46px)}
 
   .top{display:flex;justify-content:space-between;align-items:center;gap:16px}
-  .mark{font-family:'Anton',sans-serif;font-size:clamp(20px,2.6vw,27px);letter-spacing:.14em;text-transform:uppercase}
+  .mark{font-family:'Conthrax','Michroma','SukhumvitSet',sans-serif;font-size:clamp(20px,2.6vw,27px);letter-spacing:.14em;text-transform:uppercase}
   .mark img{max-height:52px;display:block}
   .status{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
   .status .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2.4s infinite}
@@ -55,12 +52,12 @@
   @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
   .eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:#4fb84f;margin-bottom:18px}
   .eyebrow::before{content:"";width:38px;height:2px;background:#4fb84f;display:inline-block}
-  h1{font-family:'Anton',sans-serif;font-weight:400;line-height:.92;letter-spacing:.01em;font-size:clamp(52px,11vw,128px);text-transform:uppercase}
+  h1{font-family:'Conthrax','Michroma','SukhumvitSet',sans-serif;font-weight:400;line-height:.92;letter-spacing:.01em;font-size:clamp(52px,11vw,128px);text-transform:uppercase}
   h1 .thin{-webkit-text-stroke:1.5px var(--ink);color:transparent}
   .tag{margin-top:22px;max-width:500px;font-weight:300;font-size:clamp(15px,2.1vw,19px);line-height:1.65;color:var(--muted)}
 
   .count{display:flex;gap:clamp(18px,4vw,40px);margin-top:36px}
-  .count .num{font-family:'Anton',sans-serif;font-size:clamp(30px,5.5vw,56px);line-height:1}
+  .count .num{font-family:'Conthrax','Michroma','SukhumvitSet',sans-serif;font-size:clamp(30px,5.5vw,56px);line-height:1}
   .count .lab{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px}
 
   .bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:22px;padding-top:26px;border-top:1px solid var(--line)}

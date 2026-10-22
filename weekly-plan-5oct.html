@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แผนรายสัปดาห์ — สิงหาคม–ตุลาคม 2026</title>
+<style>
+  :root{--blue:#1877f2;--ink:#1c2530;--muted:#5b6773;--line:#e4e7eb;--bg:#f4f6f8;
+    --g:#0f9d58;--a:#e67e22;--p:#7c3aed;--r:#e03e3e;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Sukhumvit Set','Noto Sans Thai',sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.55;padding:22px}
+  .page{max-width:1080px;margin:0 auto;background:#fff;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,.06);overflow:hidden}
+  header{background:linear-gradient(135deg,#1877f2,#0a5fd9);color:#fff;padding:24px 30px}
+  header h1{font-size:22px;font-weight:800}
+  header .sub{font-size:13px;opacity:.9;margin-top:5px}
+  .body{padding:24px 30px}
+  h2{font-size:15px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin:26px 0 12px}
+  h2:first-child{margin-top:0}
+
+  table{width:100%;border-collapse:collapse;margin-top:6px;font-size:12.5px}
+  th,td{border:1px solid var(--line);padding:9px 11px;vertical-align:top;text-align:left}
+  th{background:#eef4ff;color:#20364f;font-weight:800;font-size:12px}
+  td.day{font-weight:700;background:#fafbfc;width:16%;white-space:nowrap}
+  .chip{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:6px;margin-right:4px}
+  .c-web{background:#e8f0fe;color:#1877f2}.c-seo{background:#e6f9ef;color:#0f9d58}
+  .c-ads{background:#f3e8ff;color:#7c3aed}.c-track{background:#fff4e5;color:#b45309}
+  .c-rep{background:#eceff1;color:#455a64}.c-eden{background:#fde7f3;color:#be185d}
+  .c-extra{background:#e0f2f1;color:#00695c}
+
+  .wk{border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden}
+  .wk>.hd{background:#f7f9fc;border-bottom:1px solid var(--line);padding:12px 16px;display:flex;
+    justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .wk>.hd .n{font-size:15px;font-weight:800}
+  .wk>.hd .n span{color:var(--muted);font-weight:600;font-size:12.5px;margin-left:6px}
+  .wk>.hd .goal{font-size:12.5px;font-weight:700;color:var(--blue);text-align:right}
+  .wk>.in{padding:14px 16px}
+  .row{display:grid;grid-template-columns:150px 1fr;gap:10px;padding:7px 0;border-bottom:1px dashed #eef1f4;font-size:13px}
+  .row:last-child{border-bottom:0}
+  .row .lb{font-weight:700;color:#33414f}
+  .row ul{margin:0;padding-left:16px}
+  .row li{margin-bottom:2px}
+  .out{margin-top:10px;background:#f0f7ff;border:1px solid #cfe0fb;border-radius:9px;padding:9px 13px;font-size:12.5px}
+  .out b{color:var(--blue)}
+
+  .goals{background:#f0f7ff;border:1px solid #cfe0fb;border-radius:12px;padding:16px 20px;margin-top:6px}
+  .goals ul{margin:0;padding-left:18px}
+  .goals li{font-size:13.5px;margin-bottom:6px}
+  .goals b{color:var(--blue)}
+  .warn{background:#fff1f1;border-color:#f5c2c2}.warn b{color:#b3261e}
+  footer{padding:14px 30px 26px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+  @media print{body{background:#fff;padding:0}.page{box-shadow:none}.wk{break-inside:avoid}}
+  @media(max-width:720px){.row{grid-template-columns:1fr;gap:2px}.wk>.hd .goal{text-align:left}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <h1>แผนรายสัปดาห์ — สิงหาคม–กันยายน 2026</h1>
+  <div class="sub">17 ส.ค. – 9 ต.ค. 2026 · 8 สัปดาห์ · Digital Marketing (Staff): Pao · เต็มเวลา 5 วัน/สัปดาห์ · เสนอ: หัวหน้าแผนก Marketing</div>
+</header>
+<div class="body">
+
+  <h2>หลักการของแผนนี้</h2>
+  <div class="goals">
+    <ul>
+      <li><b>ทุกสัปดาห์ต้องคืบทุกสายงาน</b> — ไม่จมอยู่กับเว็บ Delta อย่างเดียวจนแอดและ SEO นิ่ง แต่ละสัปดาห์แตะครบทั้ง เว็บ · SEO/ความเร็ว · Tracking · แอด</li>
+      <li><b>Delta คือเส้นตายหลัก</b> — Go live 28 ก.ย. งานอื่นวางให้ไม่ชนกับ milestone ของ Delta</li>
+      <li><b>งานที่ต้องรอผล วางไว้ต้นแผน</b> — A/B test, Search Console, การ index หน้าใหม่ ต้องใช้เวลาสะสมข้อมูล จึงเริ่มให้เร็วที่สุด</li>
+      <li><b>Delta ไม่ได้ย้าย SEO จาก HK แล้ว</b> — คงเว็บ hkmotorguide.com ไว้เหมือนเดิม แล้วเพิ่มโซนโปรโมทแบรนด์ใหม่ + ลิงก์มา Delta แทน · ตัดงานย้ายคอนเทนต์และ 301 redirect ออกทั้งหมด เอาเวลาที่ได้คืนไปลงกับคอนเทนต์/SEO ตั้งต้นของ Delta และงาน PageSpeed ที่ค้าง</li>
+      <li><b>เผื่อ buffer</b> — สัปดาห์ที่ 6 กันไว้เป็น QA และงานตกหล่น ไม่ใส่งานใหม่</li>
+    </ul>
+  </div>
+
+  <h2>จังหวะการทำงานประจำสัปดาห์ (ใช้ซ้ำทุกสัปดาห์)</h2>
+  <table>
+    <tr><th style="width:16%">วัน</th><th>โฟกัส</th></tr>
+    <tr><td class="day">ทุกเช้า 30–60 น.</td><td><span class="chip c-ads">แอด</span>เช็ก spend · CPA · ผิดปกติรายวัน ปิดตัวที่พังทันที ไม่รอสิ้นสัปดาห์</td></tr>
+    <tr><td class="day">จันทร์–พุธ</td><td><span class="chip c-web">เว็บ</span>งานสร้างเว็บหลักของสัปดาห์ (บล็อกเวลายาว ห้ามแทรก)</td></tr>
+    <tr><td class="day">พฤหัสบดี</td><td><span class="chip c-seo">SEO/ความเร็ว</span><span class="chip c-track">Tracking</span>ครึ่งเช้า SEO+PageSpeed · ครึ่งบ่าย tracking/วัดผล</td></tr>
+    <tr><td class="day">ศุกร์</td><td><span class="chip c-ads">แอด</span><span class="chip c-rep">สรุป</span>ครึ่งเช้า optimize แอดเชิงลึก (A/B, โยกงบ) · ครึ่งบ่ายสรุปสัปดาห์ + วางงานสัปดาห์หน้า</td></tr>
+  </table>
+
+  <h2>แผนรายสัปดาห์</h2>
+
+  <div class="wk">
+    <div class="hd">
+      <div class="n">สัปดาห์ 1 <span>17–21 ส.ค.</span></div>
+      <div class="goal">ขึ้น Coming Soon Delta + ปิดหนี้ที่ค้างจาก Hiracer</div>
+    </div>
+    <div class="in">
+      <div class="row"><div class="lb"><span class="chip c-web">เว็บ Delta</span></div><div><ul>
+        <li><b>ขึ้นหน้า Coming Soon บน deltaspeedlab.com</b> (ดีไซน์เสร็จแล้ว) — ตั้งโฮสต์ · SSL Let's Encrypt · บังคับ HTTPS · ทำตามสูตรเดียวกับที่ Hiracer สำเร็จมาแล้ว</li>
+        <li>ใส่ลิงก์ช่องทางจริงบน Coming Soon + ติด GA4 event <code>channel_click</code> ตั้งแต่วันแรก</li>
+        <li>ร่าง sitemap เว็บ Delta (หน้าหลัก · หมวดมอเตอร์ · หน้าสินค้า · บทความ · ติดต่อ)</li>
+        <li>ตั้ง LocalWP + Elementor สำหรับ Delta ใช้ template เดิมจาก Hiracer เพื่อประหยัดเวลา</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-web">เว็บ HK</span></div><div><ul>
+        <li>สำรวจเว็บ hkmotorguide.com หาตำแหน่งวางโซนโปรโมทแบรนด์ใหม่ (หน้าแรก · ท้ายบทความ · แถบข้าง)</li>
+        <li>ร่างดีไซน์แบนเนอร์/เซคชัน + ข้อความชวนคลิกไป Delta</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-seo">Hiracer</span></div><div><ul>
+        <li>วัด PageSpeed หลัง go live เต็มรูปแบบ เก็บเป็น baseline ใหม่</li>
+        <li>เก็บ quick win: บีบรูปเป็น WebP · lazy load · เปิด cache · ตัด plugin ที่ไม่ใช้</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-track">Tracking</span></div><div><ul>
+        <li>ตรวจ GA4 หลังเว็บเต็มขึ้น — event <code>channel_click</code> ยังยิงครบทุกปุ่มไหม</li>
+        <li>ตั้ง conversion event ในหน้าสินค้าทุกหน้า</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-ads">แอด</span></div><div><ul>
+        <li>รีวิวแคมเปญเทียบ baseline 2 เดือน — คัด 3 ตัวแย่สุด / 3 ตัวดีสุด</li>
+        <li>เปิด <b>A/B test ชุดแรก</b> (ครีเอทีฟ 2 แบบ บนแคมเปญที่ยอดสูงสุด)</li>
+      </ul></div></div>
+      <div class="out"><b>ส่งมอบ:</b> deltaspeedlab.com ออนไลน์แล้ว (Coming Soon + SSL + GA4) · sitemap Delta · ร่างโซนโปรโมทบน HK · Hiracer PageSpeed baseline ใหม่ + quick win เสร็จ · A/B test ชุด 1 เริ่มรัน</div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="hd">
+      <div class="n">สัปดาห์ 2 <span>24–28 ส.ค.</span></div>
+      <div class="goal">หน้าแรก Delta + เคลียร์ EDEN ที่ค้างมานาน</div>
+    </div>
+    <div class="in">
+      <div class="row"><div class="lb"><span class="chip c-web">เว็บ Delta</span></div><div><ul>
+        <li>สร้างหน้า Home เสร็จ (hero · หมวดมอเตอร์ · สินค้าเด่น · ปุ่ม LINE/Shopee/Lazada)</li>
+        <li>ทำ template หน้าสินค้า 1 แบบ ให้ใช้ซ้ำได้ทุกรุ่น</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-eden">EDEN</span></div><div><ul>
+        <li>ตรวจเว็บเต็มรูปแบบ — ลิสต์ปัญหาเร่งด่วนพร้อมจัดลำดับ</li>
+        <li>วัด PageSpeed + แก้จุดวิกฤตที่แก้ได้ในวันเดียว</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-seo">SEO</span></div><div><ul>
+        <li>On-page SEO หน้าหลัก Hiracer 5 หน้า (title · meta · H1 · alt · internal link)</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-ads">แอด</span></div><div><ul>
+        <li>ยิงแอด Facebook awareness ของ Hiracer</li>
+        <li>ยิงแอด Facebook กดไลค์เพจ ของ Hiracer</li>
+      </ul></div></div>
+      <div class="out"><b>ส่งมอบ:</b> หน้า Home Delta เสร็จ</div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="hd">
+      <div class="n">สัปดาห์ 3 <span>31 ส.ค. – 4 ก.ย.</span></div>
+      <div class="goal">ส่งรายงาน ส.ค. + หน้าสินค้า Delta + เว็บวิกฤต Mega Play</div>
+    </div>
+    <div class="in">
+      <div class="row"><div class="lb"><span class="chip c-extra">นอกแผน</span></div><div><ul>
+        <li>Setup WooCommerce ของเว็บ <b>aroma-edrum.com</b></li>
+        <li>ออกแบบหน้า Home ของ aroma ใหม่ (ดีไซน์เสร็จแล้ว — <b>ยังไม่ publish</b>)</li>
+        <li>ทำแบนเนอร์ (banner) aroma ชุดใหม่</li>
+        <li>ทำหน้าสินค้าเชื่อมกับ WooCommerce</li>
+      </ul></div></div>
+      <div class="out"><b>ส่งมอบ:</b> Setup WooCommerce aroma-edrum.com · ออกแบบหน้า Home aroma ใหม่ (รอ publish) · แบนเนอร์ aroma ชุดใหม่ · หน้าสินค้าเชื่อม WooCommerce</div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="hd">
+      <div class="n">สัปดาห์ 4 <span>7–11 ก.ย.</span></div>
+      <div class="goal">คอนเทนต์ + SEO ตั้งต้นของ Delta + เปิดโซนโปรโมทบน HK</div>
+    </div>
+    <div class="in">
+      <div class="row"><div class="lb"><span class="chip c-extra">นอกแผน</span></div><div><ul>
+        <li>เพิ่มข้อมูลสินค้า <b>N2, N3, N6, 18S</b> ในเว็บ aroma-edrum.com</li>
+        <li>ปรับโครงหน้าสินค้า/หน้าแรกของ aroma-edrum.com ให้เชื่อมกับ WooCommerce</li>
+        <li>อัปเดตลิงก์ช่องทางซื้อต่างๆ (Shopee/Lazada/LINE) ในเว็บ aroma-edrum.com</li>
+      </ul></div></div>
+      <div class="out"><b>ส่งมอบ:</b> ข้อมูลสินค้า N2/N3/N6/18S ครบ · หน้าสินค้า/หน้าแรก aroma-edrum.com เชื่อม WooCommerce · ลิงก์ช่องทางซื้อ aroma-edrum.com อัปเดตครบ</div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="hd">
+      <div class="n">สัปดาห์ 5 <span>14–18 ก.ย.</span></div>
+      <div class="goal">ปรับโครงเว็บ HXM ใหม่ทั้งระบบ + ปรับแต่งหน้า Home และปุ่มของ Aroma</div>
+    </div>
+    <div class="in">
+      <div class="row"><div class="lb"><span class="chip c-extra">นอกแผน · HXM</span></div><div><ul>
+        <li>ปรับโครงสร้างเว็บไซต์ <b>HXM</b> ใหม่ทั้งหมด ให้เชื่อมกับระบบ WooCommerce</li>
+        <li>ออกแบบหน้า Home ของ HXM ใหม่</li>
+        <li>ปรับธีมหน้าสินค้าเป็นโทนมืด (dark theme)</li>
+        <li>เพิ่มปุ่มช่องทางสั่งซื้อในหน้าสินค้า</li>
+        <li>อัปเดตข้อมูลสินค้าในเว็บ HXM ให้ครบถ้วน</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-extra">นอกแผน · Aroma</span></div><div><ul>
+        <li>ขยายภาพหลักหน้า Home ของ <b>aroma-edrum.com</b> ให้ใหญ่และโดดเด่นขึ้น</li>
+        <li>เพิ่มข้อมูลสินค้า <b>N2, N3, N6</b> ในเว็บ aroma-edrum.com</li>
+        <li>ปรับปุ่ม YouTube เป็นสีแดงตามธีมแบรนด์</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-web">เว็บ Delta</span></div><div><ul>
+        <li>อัปเดตลิงก์ช่องทางต่างๆ ในหน้า Coming Soon ของเว็บ Delta ให้เป็นปัจจุบัน</li>
+      </ul></div></div>
+      <div class="out"><b>ส่งมอบ:</b> HXM — โครงเว็บใหม่เชื่อม WooCommerce, หน้า Home ใหม่, ธีมหน้าสินค้าโทนมืด, ปุ่มช่องทางสั่งซื้อครบ, ข้อมูลสินค้าอัปเดตครบ · Aroma — ภาพหน้า Home ใหญ่ขึ้น, ข้อมูลสินค้า N2/N3/N6 ครบ, ปุ่ม YouTube เปลี่ยนเป็นสีแดง · Delta — ลิงก์ช่องทางในหน้า Coming Soon อัปเดตครบ</div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="hd">
+      <div class="n">สัปดาห์ 6 <span>21–25 ก.ย.</span></div>
+      <div class="goal">QA เว็บ Delta เต็มรูปแบบ + เก็บงานค้าง HXM/Aroma + เปิดแบนเนอร์ Delta บน HK</div>
+    </div>
+    <div class="in">
+      <div class="row"><div class="lb"><span class="chip c-extra">นอกแผน · HXM</span></div><div><ul>
+        <li>ปรับปรุง Hero Banner หน้าสินค้าให้เป็นแบบเดียวกันครบ 16 รุ่น (ภาพเต็มขอบ + ชื่อรุ่น + eyebrow ตามหมวดหมู่)</li>
+        <li>แก้ไข dynamic title ตัดคำนำหน้า "HXM" ออกจากหัวข้อหน้าสินค้า</li>
+        <li>ปรับ margin หัวข้อ + พื้นหลังสีขาวของส่วน Hero ให้เหมือนกันครบ 16 รุ่น</li>
+        <li>ตรวจ/แก้เนื้อหาและตาราง Specification ที่ copy ผิดจากรุ่นอื่น (XD-3000, XD-2500)</li>
+        <li>ปรับความสว่างภาพ Hero หน้าแรก (ลด overlay ดำจาก 40% เหลือ 15%)</li>
+        <li>บีบอัด + เปลี่ยนชื่อไฟล์รูปภาพ XD-3000 ให้พร้อมใช้งานบนเว็บ</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-extra">นอกแผน · Aroma</span></div><div><ul>
+        <li>เก็บงาน Aroma ที่ยังค้างให้เรียบร้อย (ถ้ามี)</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-web">เว็บ Delta</span></div><div><ul>
+        <li>QA เต็มรูปแบบ — ทุกหน้า ทุกปุ่ม ทุกฟอร์ม บนมือถือและ desktop</li>
+        <li>ตรวจ GA4 · Pixel · CPAS ติดครบทุกหน้าก่อน live</li>
+        <li>PageSpeed Delta ให้ถึง 75–80+ ตั้งแต่ก่อน live ไม่ใช่ค่อยมาแก้ทีหลัง</li>
+        <li>ซ้อม cutover — เขียนลำดับขั้นวัน go live ให้ชัด พร้อมแผนถอยกลับถ้าพัง</li>
+        <li>ทำโครงเว็บ Delta ให้เสร็จสมบูรณ์ พร้อม publish</li>
+        <li>ลงข้อมูลสินค้าใน Delta ให้ครบทุกรายการ</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-web">เว็บ HK</span></div><div><ul>
+        <li>เพิ่มแบนเนอร์โปรโมท Delta ในเว็บ hkmotorguide.com</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-seo">SEO</span></div><div><ul>
+        <li>ไล่ broken links ทุกเว็บในพอร์ตให้เหลือ 0%</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-ads">แอด</span></div><div><ul>
+        <li>อ่านผลการ scale · เตรียมงบรองรับทราฟฟิก Delta หลัง live</li>
+      </ul></div></div>
+      <div class="out"><b>ส่งมอบ:</b> Delta ผ่าน QA พร้อม live · เอกสารขั้นตอน cutover + แผนถอย · broken links 0% ทุกเว็บ · โครงเว็บ Delta เสร็จพร้อม publish พร้อมสินค้าครบ · แบนเนอร์ Delta บนเว็บ HK ขึ้นแล้ว · HXM — Hero Banner 16 รุ่นเสร็จครบ (ภาพเต็มขอบ, ชื่อรุ่น/eyebrow, margin+พื้นหลังขาว), แก้ dynamic title, แก้เนื้อหา/สเปคที่ copy ผิด, ภาพหน้าแรกสว่างขึ้น, รูป XD-3000 บีบอัด+เปลี่ยนชื่อครบ · งาน Aroma ที่ค้างเสร็จสมบูรณ์</div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="hd">
+      <div class="n">สัปดาห์ 7 <span>28 ก.ย. – 2 ต.ค.</span></div>
+      <div class="goal">เก็บงาน Aroma/HXM + Delta หน้า Home พร้อม WooCommerce + ยิงแอด Google Search</div>
+    </div>
+    <div class="in">
+      <div class="row"><div class="lb"><span class="chip c-extra">นอกแผน · Aroma / HXM</span></div><div><ul>
+        <li>เก็บงาน <b>aroma-edrum.com</b> ที่ค้างอยู่ให้เรียบร้อย</li>
+        <li>เก็บงาน <b>HXM</b> ที่ค้างอยู่ให้เรียบร้อย</li>
+      </ul></div></div>
+      <div class="row"><div class="lb">เว็บ Delta</div><div><ul>
+        <li>ทำหน้า <b>Home</b> ของเว็บ Delta ใหม่ (เวอร์ชันทดสอบที่ <code>deltaspeedlab.com/new/</code>)</li>
+        <li>เพิ่มระบบ <b>WooCommerce</b> ให้เว็บ Delta</li>
+        <li>ยังไม่ Go live — ย้ายไปทำต่อสัปดาห์ถัดไป</li>
+      </ul></div></div>
+      <div class="row"><div class="lb">แอด</div><div><ul>
+        <li><b>ยิงแอด Google Search</b> (Alpha Kayaks)</li>
+        <li>ตรวจแก้ <b>Conversion tracking</b> ของ Google Ads ที่ขึ้น "กำหนดค่าไม่ถูกต้อง" — สร้าง conversion ใหม่ผ่าน Google Tag Manager + trigger คลิกปุ่ม <b>Line</b> และ <b>Shopee</b> ทดสอบด้วย Tag Assistant แล้วยิงถูกต้องทั้งสองปุ่ม</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-extra">นอกแผน · Noisy Music Shop</span></div><div><ul>
+        <li>อัปเดตสินค้าใหม่ของ <b>Noisy Music Shop</b></li>
+      </ul></div></div>
+      <div class="out"><b>ส่งมอบ:</b> งาน Aroma/HXM ที่ค้างเก็บครบ · หน้า Home Delta + WooCommerce (ทดสอบที่ /new/) · แคมเปญ Google Search ขึ้นแล้ว · Tracking ปุ่ม Line/Shopee ทำงานถูกต้อง · อัปเดตสินค้าใหม่ Noisy Music Shop</div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="hd">
+      <div class="n">สัปดาห์ 8 <span>5–9 ต.ค.</span></div>
+      <div class="goal">เก็บงานที่แพลนไว้ให้หมด — Go live Delta + ปิดงานค้างทุกสาย</div>
+    </div>
+    <div class="in">
+      <div class="row"><div class="lb">เว็บ Delta</div><div><ul>
+        <li>ทำโครงเว็บให้เสร็จ + ลงข้อมูลสินค้าครบทุกรายการ (WooCommerce ใช้แสดงสินค้า — <b>ไม่เปิดสั่งซื้อบนเว็บ</b> ให้สั่งผ่าน LINE หรือ Shopee)</li>
+        <li>ทำ<b>หน้าสินค้าให้สมบูรณ์</b>ทุกรุ่น — รูป · สเปก · รายละเอียด · ปุ่ม LINE/Shopee ชัดเจน (ซ่อนตะกร้า/ชำระเงิน)</li>
+        <li>เพิ่ม<b>บทความ</b>เข้าเว็บ Delta (ลงบทความตั้งต้น + ลิงก์ไปหน้าสินค้า)</li>
+        <li>QA เต็มรูปแบบ — ทุกหน้า ทุกปุ่ม ทุกฟอร์ม บนมือถือและ desktop · ทดสอบปุ่ม LINE/Shopee ทุกหน้าสินค้าว่าลิงก์ถูกและ tracking ยิง</li>
+        <li>ตรวจ GA4 · Pixel · CPAS ติดครบทุกหน้า · PageSpeed mobile ให้ถึง 75–80+</li>
+        <li>ซ้อม cutover + แผนถอยกลับ แล้ว <b>Go live</b><br><span style="display:block;margin-top:3px;font-size:.92em;color:#5b6b66;line-height:1.55">💡 <b>Cutover</b> คือขั้นตอนสลับจากหน้า Coming Soon เป็นเว็บจริง (ย้ายไฟล์/ฐานข้อมูล เปลี่ยน DNS/ลิงก์) <b>ซ้อม</b> = ลองทำตามลำดับขั้นบนเว็บทดสอบก่อน และ<b>แผนถอยกลับ</b> = ขั้นตอนย้อนกลับเป็นหน้าเดิมทันทีถ้าพัง · <b>ทำไปเพราะ</b> วัน live จะไม่ต้องนึกหน้างาน ลดเสี่ยงเว็บล่ม/ลิงก์พัง · <b>ผลดี</b> ถ้ามีปัญหาย้อนกลับได้ในไม่กี่นาที ลูกค้าไม่เห็นเว็บเสีย</span> เปลี่ยนจาก Coming Soon เป็นเว็บเต็มบน deltaspeedlab.com</li>
+        <li>ส่ง sitemap เข้า Search Console + ขอ index หน้าหลักทันที<br><span style="display:block;margin-top:3px;font-size:.92em;color:#5b6b66;line-height:1.55">💡 Sitemap คือสารบัญหน้าเว็บที่บอก Google ว่ามีหน้าอะไรบ้าง · <b>ทำไปเพราะ</b> Delta เป็นโดเมนใหม่ที่ Google ยังไม่รู้จัก ถ้ารอให้ค้นเจอเองอาจใช้เวลาหลายสัปดาห์ · <b>ผลดี</b> หน้าเว็บ/สินค้า/บทความถูก index เร็วขึ้น เริ่มติดอันดับค้นหาได้เร็วขึ้น และดูข้อมูลการค้นหาใน Search Console ได้ตั้งแต่ต้น</span></li>
+      </ul></div></div>
+      <div class="row"><div class="lb">เว็บ HK</div><div><ul>
+        <li>เปิดโซนโปรโมท/แบนเนอร์ Delta บน hkmotorguide.com พร้อม Go live (ติด <code>utm_source=hk</code>) แล้วดูทราฟฟิกใน GA4</li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-extra">นอกแผน · Aroma / HXM</span></div><div><ul>
+        <li>ไล่ตรวจงานที่ค้างทั้งสองเว็บอีกรอบ ปิดให้หมด</li>
+      </ul></div></div>
+      <div class="row"><div class="lb">SEO</div><div><ul>
+        <li>ไล่ broken links ทุกเว็บในพอร์ตให้เหลือ 0%</li>
+      </ul></div></div>
+      <div class="row"><div class="lb">แอด / Tracking</div><div><ul>
+        <li>แก้ conversion <b>"การดูหน้าเว็บ"</b> ของ Alpha Kayaks ที่ยัง "กำหนดค่าไม่ถูกต้อง" (Line/Shopee แก้เสร็จแล้ว)<br><span style="display:block;margin-top:3px;font-size:.92em;color:#5b6b66;line-height:1.55">💡 <b>ทำไปเพราะ</b> สถานะ "กำหนดค่าไม่ถูกต้อง" แปลว่า Google ไม่ได้รับสัญญาณนับผลจากเป้าหมายนี้ · <b>ผลดี</b> ข้อมูลการดูหน้าเว็บกลับมาครบ ระบบประมูลอัตโนมัติของ Google Ads ใช้ข้อมูลที่ถูกต้องในการปรับการประมูล และตัวเลขในรายงานเชื่อถือได้</span></li>
+        <li>จัดการ conversion เก่า "Line" / "Shopee" ที่ใช้ไม่ได้ ไม่ให้ซ้ำซ้อนในรายงาน<br><span style="display:block;margin-top:3px;font-size:.92em;color:#5b6b66;line-height:1.55">💡 ตอนนี้มีทั้งตัวเก่า (สร้างผ่าน API ไม่ได้ผูกกับปุ่ม จึงนับไม่ได้) และตัวใหม่ "Line Button Click" / "Shopee Button Click" ที่ทำงานจริง · <b>ทำไปเพราะ</b> ตัวเก่าค้างเป็น error และทำให้รายงานสับสน · <b>ผลดี</b> เหลือเป้าหมายที่ใช้จริงอย่างละ 1 อัน นับไม่ซ้ำ ตัวเลข CPA/ต้นทุนต่อผลลัพธ์ไม่เพี้ยน (จะพักใช้/ลบเมื่อยืนยันว่าตัวใหม่ทำงานครบแล้ว)</span></li>
+        <li>อัปเดตรายงานสรุปแคมเปญ Alpha Kayaks ให้ตรงกับ tracking ที่แก้แล้ว<br><span style="display:block;margin-top:3px;font-size:.92em;color:#5b6b66;line-height:1.55">💡 <b>ทำไปเพราะ</b> รายงานฉบับปัจจุบันยังเขียนตามการตั้งค่าเดิมที่พบว่าไม่ทำงาน · <b>ผลดี</b> หัวหน้า/ลูกค้าเห็นข้อมูลที่ตรงกับความจริง รู้ว่าตอนนี้วัดอะไรได้บ้าง และใช้เป็นฐานเทียบผลในรอบถัดไป</span></li>
+      </ul></div></div>
+      <div class="row"><div class="lb"><span class="chip c-extra">นอกแผน · Noisy Music Shop</span></div><div><ul>
+        <li>เติมข้อมูลสเปกสินค้าใหม่ให้ครบ (รอข้อมูลจากซัพพลายเออร์)</li>
+      </ul></div></div>
+      <div class="out"><b>ส่งมอบ:</b> Delta ขึ้นออนไลน์เต็มรูปแบบ (สั่งซื้อผ่าน LINE/Shopee) · หน้าสินค้าสมบูรณ์ทุกรุ่น · บทความเข้าเว็บแล้ว · โซนโปรโมทบน HK ส่งทราฟฟิกได้จริง · broken links 0% · Tracking Alpha Kayaks ถูกต้องครบทุก conversion · งานค้าง Aroma/HXM/Noisy ปิดหมด</div>
+    </div>
+  </div>
+
+  <h2>จุดวัดผลระหว่างทาง</h2>
+  <table>
+    <tr><th style="width:22%">ตรวจเมื่อ</th><th>ต้องเห็นอะไร</th></tr>
+    <tr><td class="day">สิ้นสัปดาห์ 1</td><td>deltaspeedlab.com ออนไลน์แล้ว (Coming Soon + SSL + GA4) — ถ้ายังไม่ขึ้น แปลว่าติดปัญหาโฮสต์ ต้องแก้ทันที</td></tr>
+    <tr><td class="day">สิ้นสัปดาห์ 2</td><td>หน้า Home Delta เสร็จ · รายการปัญหา EDEN ครบ · A/B test มีผลให้ตัดสินใจแล้ว</td></tr>
+    <tr><td class="day">สิ้นสัปดาห์ 3 (31 ส.ค.)</td><td>Mega Play หลุดจากคะแนนวิกฤต · tracking ปุ่ม Coming Soon ครบ</td></tr>
+    <tr><td class="day">สิ้นสัปดาห์ 4</td><td>บทความ seed Delta ครบ · โซนโปรโมทบน HK ใช้งานจริงแล้ว และเริ่มเห็นตัวเลขคลิกใน GA4</td></tr>
+    <tr><td class="day">สิ้นสัปดาห์ 5</td><td>โครงเว็บ HXM ใหม่เชื่อม WooCommerce พร้อมหน้า Home ใหม่และธีมโทนมืด · หน้า Home Aroma ภาพใหญ่ขึ้น + ข้อมูลสินค้า N2/N3/N6 ครบ + ปุ่ม YouTube สีแดง · ลิงก์ช่องทางในหน้า Coming Soon ของ Delta อัปเดตครบ</td></tr>
+    <tr><td class="day">สิ้นสัปดาห์ 6</td><td>Delta พร้อม live ทุกด้าน · PageSpeed mobile 75–80+ · broken links 0% · โครงเว็บ Delta พร้อม publish + สินค้าครบ · แบนเนอร์ Delta บน HK ขึ้นแล้ว · HXM Hero Banner ครบ 16 รุ่น + เนื้อหา/สเปคแก้ถูกต้อง · งานค้าง Aroma เคลียร์หมด</td></tr>
+    <tr><td class="day">สิ้นสัปดาห์ 8 (9 ต.ค.)</td><td>Delta live เต็มรูปแบบ · งานที่แพลนไว้ปิดครบทุกข้อ</td></tr>
+    <tr><td class="day">30 ก.ย.</td><td>CPA/CPL ลดลง 15% · Organic +15% · เป้า 3 เดือนสรุปครบทุกข้อ</td></tr>
+  </table>
+
+  <h2>ความเสี่ยงที่ต้องเฝ้า</h2>
+  <div class="goals warn">
+    <ul>
+      <li><b>Delta เริ่มจากศูนย์ ไม่มี organic ช่วงแรก</b> — เพราะเลือกไม่ย้าย SEO จาก HK · ทางแก้: แจ้งหัวหน้าล่วงหน้าว่า organic ของ Delta ในไตรมาสนี้จะยังต่ำเป็นเรื่องปกติ อย่าเอาไปเทียบกับ HK · วัด Delta ด้วยทราฟฟิกจากลิงก์ HK + แอด + โซเชียลแทน แล้วค่อยดู organic ในไตรมาสหน้า</li>
+      <li><b>ลิงก์บน HK อาจส่งคนน้อยกว่าที่คิด</b> — คนอ่านบทความ HK ไม่จำเป็นต้องสนใจสินค้าใหม่ · ทางแก้: ติด UTM ตั้งแต่วันแรก ดูตัวเลขจริงภายใน 2 สัปดาห์ ถ้าคลิกน้อยให้ลองย้ายตำแหน่งแบนเนอร์หรือเปลี่ยนข้อความ ไม่ใช่รอถึงสิ้นไตรมาส</li>
+      <li><b>Organic +15% ทั้งพอร์ตอาจไม่ถึงเป้า</b> — เดิมเป้านี้พึ่งการย้าย SEO จาก HK เข้ามาช่วย พอตัดออกก็เหลือแต่การปรับ SEO เว็บเดิม · ทางแก้: ยกเรื่องนี้คุยกับหัวหน้าตั้งแต่รายงานเดือน ส.ค. เพื่อปรับเป้าให้สมเหตุสมผล ไม่ใช่ไปอธิบายตอนสิ้นไตรมาส</li>
+      <li><b>ทำคนเดียวทุกสาย</b> — งานแทรกด่วนหนึ่งเรื่องกินเวลาทั้งสัปดาห์ได้ · ทางแก้: สัปดาห์ 6 กันไว้เป็น buffer อยู่แล้ว ถ้าโดนแทรกก่อนหน้านั้นให้ดึงงานมาลงสัปดาห์ 6</li>
+      <li><b>แอดนิ่งเพราะมัวทำเว็บ</b> — ความเสี่ยงที่เกิดจริงมาแล้วในเดือน ก.ค.–ส.ค. · ทางแก้: เช็กแอดทุกเช้าเป็นกิจวัตร ห้ามข้าม แม้วันที่งานเว็บหนัก</li>
+    </ul>
+  </div>
+
+</div>
+<footer>จัดทำโดย: Pao — Digital Marketing Staff · แผนรายสัปดาห์ 17 ส.ค. – 9 ต.ค. 2026 · พิมพ์เป็น PDF ได้จากเมนู Print ของเบราว์เซอร์ · อัปเดตล่าสุด: 5 ต.ค. 2026</footer>
+</div>
+</body>
+</html>

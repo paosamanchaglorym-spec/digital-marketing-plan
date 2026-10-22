@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เช็กลิสต์แผนงาน Digital Marketing — เว็บ / Ads</title>
+<style>
+  :root{--blue:#1877f2;--ink:#1c2530;--muted:#5b6773;--line:#e4e7eb;--bg:#f4f6f8;--g:#0f9d58;--a:#e67e22;--r:#e03e3e;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Sukhumvit Set','Noto Sans Thai',sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;padding:22px}
+  .page{max-width:980px;margin:0 auto;background:#fff;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,.06);overflow:hidden}
+  header{background:linear-gradient(135deg,#1877f2,#0a5fd9);color:#fff;padding:22px 28px}
+  header h1{font-size:21px;font-weight:800}
+  header .sub{font-size:13px;opacity:.9;margin-top:5px}
+  .bar-wrap{margin-top:16px}
+  .bar-top{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;opacity:.95}
+  .bar{height:9px;background:rgba(255,255,255,.25);border-radius:20px;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:#fff;border-radius:20px;transition:width .35s}
+
+  .tabs{display:flex;gap:6px;padding:14px 28px 0}
+  .tab{font-size:14px;font-weight:800;padding:11px 24px;border:none;background:#eef1f4;color:var(--muted);border-radius:10px 10px 0 0;cursor:pointer}
+  .tab.active{background:#fff;color:var(--blue);box-shadow:0 -2px 0 var(--blue) inset}
+  .body{padding:18px 28px 26px}
+  .actions{display:flex;gap:10px;justify-content:flex-end;margin-bottom:12px}
+  .btn{font-size:12.5px;font-weight:700;padding:8px 16px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
+  .btn:hover{background:#f3f4f6}.btn.print{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+  h2.mtitle{font-size:15px;font-weight:800;color:#20364f;margin:24px 0 3px}
+  .msub{font-size:12px;color:var(--muted);margin-bottom:10px}
+
+  /* website list */
+  .sites{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:#fbfcfe}
+  .sites h4{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:#334;margin-bottom:8px}
+  .sites .site{display:flex;align-items:center;gap:8px;font-size:14px;padding:3px 0}
+  .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;background:#c4ccd4}
+  .dot.ok{background:var(--g)}.dot.wip{background:var(--a)}.dot.urgent{background:var(--r)}
+  .site.urgent{color:var(--r);font-weight:700}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:10px 2px 0}
+  .legend span{display:flex;align-items:center;gap:6px}
+
+  .prio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px}
+  .pcard{border:1px solid #ffd3d3;background:#fff6f6;border-radius:10px;padding:12px 15px}
+  .pcard .tag{display:inline-block;font-size:10.5px;font-weight:800;color:#fff;background:var(--r);padding:2px 9px;border-radius:20px;margin-bottom:6px}
+  .pcard h3{font-size:15px;font-weight:800}.pcard p{font-size:12px;color:var(--muted);margin-top:2px}
+
+  .month{border:1px solid var(--line);border-radius:12px;margin-top:14px;overflow:hidden}
+  .month-h{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px;background:#eef4ff;cursor:pointer}
+  .month-h h3{font-size:14px;font-weight:800;color:#20364f}
+  .month-h .mnote{font-size:11.5px;color:var(--muted);font-weight:500}
+  .month-h .mprog{font-size:12px;font-weight:800;color:var(--blue);white-space:nowrap}
+  .month-b{padding:6px 18px 14px}
+  .group{margin-top:12px}.group .gname{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:#fff;display:inline-block;padding:2px 9px;border-radius:6px;margin-bottom:6px}
+  .g-web{background:#1877f2}.g-seo{background:#0f9d58}.g-track{background:#b45309}.g-ads{background:#7c3aed}.g-rep{background:#455a64}.g-urg{background:#e03e3e}.g-ins{background:#0aa39a}
+  label.task{display:flex;gap:10px;align-items:flex-start;padding:7px 8px;border-radius:8px;cursor:pointer;font-size:13.5px}
+  label.task:hover{background:#f7f9fc}
+  label.task input{width:18px;height:18px;margin-top:1px;accent-color:var(--blue);cursor:pointer;flex-shrink:0}
+  label.task.done span{text-decoration:line-through;color:#9aa5b1}
+
+  .mtable{width:100%;border-collapse:collapse;font-size:12.5px}
+  .mtable th,.mtable td{border:1px solid var(--line);padding:7px 9px}
+  .mtable th{background:#eef4ff;color:#20364f;font-weight:800;font-size:11.5px;text-align:center}
+  .mtable td.metric{font-weight:600}
+  .mtable tr.grp td{background:#f5f7fa;font-weight:800;color:#334}
+  .mtable input{width:100%;border:1px solid var(--line);border-radius:6px;padding:5px 7px;font:inherit;font-size:12.5px;text-align:right;background:#fffdf5}
+  .mtable input:focus{outline:none;border-color:var(--blue);background:#fff}
+  .mtable td.chg{text-align:right;font-weight:800;white-space:nowrap}
+  .chg.up{color:#0f9d58}.chg.down{color:#e03e3e}.chg.flat{color:#9aa5b1}
+
+  footer{padding:12px 28px 24px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+  .tabpane{display:none}.tabpane.active{display:block}
+  @media print{body{background:#fff;padding:0}.page{box-shadow:none}.actions,.tabs{display:none}.tabpane{display:block!important}.month-b{display:block!important}}
+  @media(max-width:720px){.sites,.prio{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <h1>✅ เช็กลิสต์แผนงาน Digital Marketing</h1>
+  <div class="sub">กรกฎาคม – ตุลาคม 2026 (อัปเดต 10 ต.ค.) · Digital Marketing (Staff): Pao · แบ่งเป็น 2 แท็บ — เว็บ / Ads</div>
+  <div class="bar-wrap"><div class="bar-top"><span>ความคืบหน้ารวม (ทั้ง 2 แท็บ)</span><span id="ovText">0 / 0 (0%)</span></div><div class="bar"><i id="ovBar"></i></div></div>
+</header>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('web',this)">🌐 เว็บ (Website)</button>
+  <button class="tab" onclick="showTab('ads',this)">📣 Ads</button>
+</div>
+
+<div class="body">
+  <div id="persistNote" style="display:none;background:#fff4e5;border:1px solid #f5c77e;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:13px">⚠ เบราว์เซอร์/หน้าต่างนี้ไม่ให้จำค่าที่ติ๊ก — ค่าจะหายเมื่อปิดหน้านี้ กรุณาเปิดไฟล์นี้ใน Chrome/Safari ปกติ หรือกด "บันทึกสำรอง" เก็บไว้</div>
+  <div class="actions">
+    <button class="btn" onclick="backupTicks()">💾 บันทึกสำรอง</button>
+    <button class="btn" onclick="restoreTicks()">📥 นำเข้า</button>
+    <button class="btn" onclick="resetAll()">ล้างการติ๊ก</button>
+    <button class="btn print" onclick="window.print()">🖨 พิมพ์ / PDF</button>
+  </div>
+
+  <!-- ============ TAB: เว็บ ============ -->
+  <div class="tabpane active" id="tab-web">
+    <h2 class="mtitle">🌐 เว็บไซต์ที่ดูแล</h2>
+    <div class="msub">ไฮไลต์แดง = รีบ ต้องทำก่อน</div>
+    <div class="sites" id="siteList"></div>
+    <div class="legend"><span><i class="dot urgent"></i> รีบ / ทำก่อน</span><span><i class="dot wip"></i> กำลังทำ</span><span><i class="dot ok"></i> ปกติ</span></div>
+
+    <h2 class="mtitle">🚩 งานเว็บเร่งด่วน</h2>
+    <div class="prio">
+      <div class="pcard"><span class="tag">รีบ</span><h3>Hiracer</h3><p>สร้าง/ปรับปรุงเว็บให้เสร็จ (Priority 1)</p></div>
+      <div class="pcard"><span class="tag">รีบ</span><h3>Delta / HK</h3><p>สร้างเว็บ Delta จากโครง HK + redirect รักษา SEO</p></div>
+      <div class="pcard"><span class="tag">รีบ</span><h3>EDEN</h3><p>แก้/ปรับปรุงเว็บ EDEN ตามที่เร่งด่วน</p></div>
+    </div>
+
+    <h2 class="mtitle">📋 เช็กลิสต์งานเว็บ (3 เดือน)</h2>
+    <div id="planWeb"></div>
+
+    <h2 class="mtitle">📊 วัดผลเว็บ ก่อน–หลัง</h2>
+    <div class="msub">กรอก “ก่อนทำ” ตอนเริ่ม แล้ว “หลังทำ” ตอนจบ — คำนวณ % ให้ (เขียว = ดีขึ้น)</div>
+    <div id="metricsWeb"></div>
+  </div>
+
+  <!-- ============ TAB: Ads ============ -->
+  <div class="tabpane" id="tab-ads">
+    <h2 class="mtitle">📋 เช็กลิสต์งานแอด (3 เดือน)</h2>
+    <div id="planAds"></div>
+
+    <h2 class="mtitle">📊 วัดผลแอด ก่อน–หลัง (KPI รวม)</h2>
+    <div class="msub">Baseline แอดใส่ค่าจริง 2 เดือนย้อนหลังไว้ให้แล้ว (แก้ทับได้) — ROAS/CPA เว้นให้เติมจากยอดขาย</div>
+    <div id="metricsAds"></div>
+
+    <h2 class="mtitle">🎯 ประสิทธิภาพรายแคมเปญ (Baseline 2 เดือน · 15 พ.ค.–14 ก.ค. 2026)</h2>
+    <div class="msub">กรอก “ต้นทุน/ผล หลังทำ” เพื่อดู % เปลี่ยนแปลงเทียบ baseline ทีละแคมเปญ (เลื่อนซ้าย-ขวาได้)</div>
+    <div id="campbase"></div>
+  </div>
+</div>
+<footer>จัดทำโดย: Pao — Digital Marketing Staff · ค่าที่ติ๊ก/กรอกถูกบันทึกอัตโนมัติในเบราว์เซอร์เครื่องนี้ · แผนยืดหยุ่นปรับได้ · รายการที่มีเครื่องหมาย ✅ ไว้แล้วคือ "งานแทรก" ที่ทำเสร็จไปแล้วนอกแผนเดิม</footer>
+</div>
+
+<script>
+const KEY="dmplan_v2_";
+/* ---------- storage (ปลอดภัย: ถ้าเบราว์เซอร์ไม่ให้จำ จะใช้หน่วยความจำชั่วคราว + เตือน) ---------- */
+const MEM={};let PERSIST=true;
+try{localStorage.setItem("__t","1");localStorage.removeItem("__t");}catch(e){PERSIST=false;}
+const LS={
+ getItem(k){try{return PERSIST?localStorage.getItem(k):(k in MEM?MEM[k]:null);}catch(e){return k in MEM?MEM[k]:null;}},
+ setItem(k,v){MEM[k]=String(v);try{if(PERSIST)localStorage.setItem(k,v);}catch(e){PERSIST=false;}},
+ keys(){const o=[];try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(KEY))o.push(k);}}catch(e){}Object.keys(MEM).forEach(k=>{if(k.startsWith(KEY)&&!o.includes(k))o.push(k);});return o;}
+};
+
+const $=s=>document.querySelector(s);
+let boxes=[];
+
+/* ---------- website list ---------- */
+const SITES={
+ "MUSIC":[["Noisy music shop","ok"],["HXM","wip"],["Aroma",""],["EDEN","urgent"],["Avatar",""]],
+ "COMPANY":[["Glory-M","wip"]],
+ "SPORTS":[["Mega play water sports",""],["Alpha",""],["Delta/HK","urgent"],["Sublue",""],["Innodigym",""],["Hiracer","urgent"],["Sport all",""]],
+};
+function renderSites(){
+  $("#siteList").innerHTML=Object.entries(SITES).map(([cat,arr])=>`
+   <div><h4>${cat}</h4>${arr.map(([n,st])=>`<div class="site ${st==='urgent'?'urgent':''}"><i class="dot ${st}"></i>${n}</div>`).join("")}</div>`).join("");
+}
+
+/* ---------- checklists ---------- */
+/* งานปกติ = string ธรรมดา · งานแทรก (นอกแผนเดิม ทำเสร็จแล้ว) = {n:"...",d:true} */
+const PLAN_WEB=[
+ {m:"เดือน 1 — กรกฎาคม",note:"เริ่มเว็บเร่งด่วน + วางราก",groups:[
+   {n:"Hiracer (รีบ)",c:"g-urg",t:["ถอดโครงสร้าง + ดีไซน์เว็บ Hiracer","ทำหน้าแรก + หน้าสินค้าหลัก"]},
+   {n:"Delta/HK (รีบ)",c:"g-urg",t:["ถอดโครง HK → ร่างโครงเว็บ Delta","เริ่มทำหน้าแรก Delta","วางแผน 301 redirect (hkmotorguide.com)"]},
+   {n:"EDEN (รีบ)",c:"g-urg",t:["ตรวจ/แก้ปัญหาเร่งด่วนเว็บ EDEN"]},
+   {n:"Tracking (เว็บ)",c:"g-track",t:["ติดตั้ง/ตรวจ GTM · GA4 · Pixel ทุกเว็บหลัก"]},
+   {n:"SEO & ความเร็ว",c:"g-seo",t:["รัน PageSpeed baseline ทุกเว็บ","แก้เว็บที่ช้าสุด 1–2 เว็บก่อน"]},
+ ]},
+ {m:"เดือน 2 — สิงหาคม",note:"สร้างเสร็จ + SEO",groups:[
+   {n:"Hiracer",c:"g-web",t:["ทำหน้าที่เหลือให้ครบ","ปรับ UX/UI + ความเร็ว + SEO on-page","เปิดใช้งานจริง (Go live)"]},
+   {n:"Delta/HK",c:"g-web",t:["ทำเว็บให้ครบ + ย้ายบทความจาก HK","ตั้ง 301 redirect (hkmotorguide.com → Delta)","แจ้ง Search Console (Change of Address)"]},
+   {n:"SEO & ความเร็ว",c:"g-seo",t:["Technical + On-page SEO 5–10 หน้าหลัก","ไล่ broken links = 0%","ดัน PageSpeed mobile 75–80+"]},
+ ]},
+ {m:"เดือน 3 — กันยายน",note:"วัดผล + ขยาย",groups:[
+   {n:"Hiracer / Delta",c:"g-web",t:["ปรับจูนหลังใช้งานจริง + เฝ้าดูทราฟฟิก/อันดับ","ไล่แก้ 404 / ปรับ SEO"]},
+   {n:"SEO & ความเร็ว",c:"g-seo",t:["ขยาย SEO หมวดสินค้าถัดไป","วัด Organic Traffic +15% เทียบไตรมาสก่อน"]},
+   {n:"HXM — งานแทรก (นอกแผนเดิม)",c:"g-ins",t:[
+     {n:"แทนที่รูป badge เดิมด้วยรูปใหม่ (ตัดขอบให้เรียบร้อย)",d:true},
+     {n:"ปรับระยะห่างการ์ดสินค้าใน Best Seller ให้ตรงตัวอย่าง",d:true},
+     {n:"สร้าง Video Review carousel ใหม่ (6 คลิปจริงจาก YouTube) แทน embed playlist เดิม",d:true},
+     {n:"ลบ label ช่องทาง/ริบบอนที่ไม่เกี่ยวข้องออกจากการ์ดวิดีโอ",d:true},
+     {n:"เพิ่ม hover สีแดงให้ปุ่ม \"ดูเพิ่มเติม\" (Hero + Best Seller)",d:true},
+     {n:"ปรับปุ่ม Contact us (Footer): ปกติดำ/ขาว ชี้เมาส์ = ยกขึ้น (lift effect)",d:true},
+     {n:"เปลี่ยนเส้นใต้เมนู active เป็นสีแดง + ลบเส้นดำที่ซ้อนอยู่ในเมนู",d:true},
+     {n:"แก้สีเส้นขอบล่าง Header เต็มความกว้างเป็นสีขาว",d:true},
+     {n:"แก้ Header มือถือ: โลโก้+เมนูอยู่แถวเดียว ซ่อนปุ่ม CTA ที่ซ้ำกับเมนู",d:true},
+     {n:"เขียน Code Snippet redirect โพสต์เก่า → สินค้า WooCommerce (รวม 13 รุ่น พร้อมทดสอบยืนยันทุกลิงก์)",d:true},
+     {n:"ตรวจ/แก้สเปคหน้าสินค้า XD-1060 ให้ตรงรุ่นจริง (เทียบแหล่งข้อมูล noisymusicshop.com)",d:true},
+     {n:"บีบอัดรูปภาพสำหรับเว็บ (mood, HDP5, XD-1060 detail) รวมกว่า 45 รูป",d:true},
+   ]},
+   {n:"Delta — ช่วง Go live (ต.ค.)",c:"g-ins",t:[
+     {n:"ย้ายเว็บ Delta จาก /new ขึ้น deltaspeedlab.com + แก้ URL /new ทั้งหมด + ล้างแคช Elementor",d:true},
+     {n:"ติด GA4 (G-2F7CD3EPF6) + tracking ปุ่ม LINE/Shopee/Lazada/TikTok/โทร/โซเชียล/เครื่องคำนวณ (เห็นใน Realtime: shopee, line)",d:true},
+     {n:"Search Console: เพิ่มโดเมน + ส่ง sitemap wp-sitemap.xml",d:true},
+     {n:"Contact: แผนที่/ชื่อ ALPHA Kayak Thailand + บล็อกสั่งซื้อออนไลน์ (ลบฟอร์ม)",d:true},
+     {n:"PageSpeed Delta 14 ต.ค.: Mobile 80 · Desktop 90 · SEO 92 · Best Practices 100 · Accessibility 90/89 (ถึงเป้า mobile 75–80+)",d:true},
+     {n:"Home: คลิป hotspot 4 ตัวใหม่ (720x720) + ซ่อนแถบ REVIEWS ชั่วคราว + Favicon ใหม่",d:true},
+     "เช็กมือถือ/แท็บเล็ตหน้า Home/สินค้า/Footer + ลิงก์ Footer",
+     "ใส่คลิปรีวิวจริงแล้วเปิดแถบ REVIEWS กลับ",
+     "แก้ลิงก์ Delta ในเว็บ HK (โพสต์ 485–489) จาก /new + เปิดแบนเนอร์โปรโมท (utm_source=hk)",
+     "ตั้ง .htaccess redirect /category/blog/ → /blog/",
+   ]},
+ ]},
+];
+const PLAN_ADS=[
+ {m:"เดือน 1 — กรกฎาคม",note:"วางระบบวัดผล + เริ่มทดสอบ",groups:[
+   {n:"Optimize",c:"g-ads",t:["รีวิวแคมเปญปัจจุบัน หาจุด optimize","เริ่ม A/B test ชุดแรก (สื่อ + กลุ่มเป้าหมาย)"]},
+   {n:"Audience & Tracking",c:"g-track",t:["Setup Custom Audience / Lookalike","Setup CPAS (Shopee/Lazada)","วางระบบ UTM + Promo code แยกกลุ่ม"]},
+   {n:"รายงาน",c:"g-rep",t:["ทำรายงานแอดเดือน ก.ค. เสนอผู้บริหาร"]},
+ ]},
+ {m:"เดือน 2 — สิงหาคม",note:"ปรับให้คุ้มขึ้น",groups:[
+   {n:"Optimize",c:"g-ads",t:["A/B test ต่อเนื่อง","โยกงบจากตัวไม่เวิร์ก → ตัวที่เวิร์ก"]},
+   {n:"Tracking",c:"g-track",t:["ตรวจความแม่นยำข้อมูล (คลาดเคลื่อน <5%)"]},
+   {n:"รายงาน",c:"g-rep",t:["ทำรายงานแอดเดือน ส.ค."]},
+ ]},
+ {m:"เดือน 3 — กันยายน",note:"สเกล + วัดผล",groups:[
+   {n:"Optimize",c:"g-ads",t:["Scale แคมเปญที่คุ้ม","วัดผล CPA / CPL ลดลง 15%"]},
+   {n:"รายงาน",c:"g-rep",t:["ทำรายงานแอดเดือน ก.ย. + สรุป OKR ไตรมาส"]},
+   {n:"Google Ads — Delta / Alpha (ต.ค.)",c:"g-ads",t:[
+     {n:"สร้างและเปิดแคมเปญ Google Search ของ Delta (3 กลุ่มโฆษณา · 28 คีย์เวิร์ด · negative 17 คำ · งบ 300/วัน)",d:true},
+     {n:"ยืนยันตัวตนผู้ลงโฆษณา Google Ads ผ่าน (บริษัท กลอรี่ เอ็ม จำกัด)",d:true},
+     {n:"เชื่อม GA4 ของ Delta กับบัญชี Google Ads 317-114-2427",d:true},
+     "GA4: Mark key event 5 ตัว (click_line/shopee/lazada/tiktok_shop/phone) แล้วนำเข้าเป็น Conversion ใน Ads",
+     "Delta: ตัดคีย์เวิร์ดไม่มีคลิก (~13 ต.ค.) + เพิ่ม Sitelinks",
+     "Alpha Kayaks: หาสาเหตุยอดแสดงผล 0 (แคมเปญมีสิทธิ์ งบปกติ)",
+     "Alpha Kayaks: แก้ conversion 'การดูหน้าเว็บ' + จัดการ conversion เก่า Line/Shopee",
+   ]},
+   {n:"รายงาน — ต.ค.",c:"g-rep",t:[{n:"อัปเดตรายงานสรุปแคมเปญ Google Ads (Alpha ตามจริง + เพิ่ม Delta) ฉบับ 10 ต.ค.",d:true},"อัปเดตรายงานหลังมีข้อมูล Conversion 1–2 สัปดาห์"]},
+ ]},
+];
+function renderPlan(rootId,PLAN,pfx){
+  const root=$("#"+rootId);
+  PLAN.forEach((mo,mi)=>{
+    const gs=mo.groups.map((g,gi)=>{
+      const items=g.t.map((t,ti)=>{
+        const label = (typeof t==='string') ? t : t.n;
+        const done = (typeof t==='object') && t.d;
+        const id=KEY+pfx+"_"+mi+"_"+gi+"_"+ti;
+        return `<label class="task"><input type="checkbox" id="${id}" data-default="${done?1:0}"><span>${label}</span></label>`;}).join("");
+      return `<div class="group"><span class="gname ${g.c}">${g.n}</span>${items}</div>`;}).join("");
+    const sec=document.createElement("div");sec.className="month";
+    sec.innerHTML=`<div class="month-h" onclick="toggleMonth(this)"><div><h3>${mo.m}</h3><div class="mnote">${mo.note}</div></div><div class="mprog" data-pfx="${pfx}" data-mi="${mi}">0/0</div></div><div class="month-b">${gs}</div>`;
+    root.appendChild(sec);
+  });
+}
+function syncLabel(b){b.closest('.task').classList.toggle('done',b.checked);}
+function toggleMonth(h){const b=h.nextElementSibling;b.style.display=b.style.display==="none"?"block":"none";}
+function bindBoxes(){
+  boxes=[...document.querySelectorAll('.task input')];
+  boxes.forEach(b=>{
+    const stored=LS.getItem(b.id);
+    b.checked = stored!==null ? stored==="1" : b.dataset.default==="1";
+    syncLabel(b);
+    b.addEventListener('change',()=>{LS.setItem(b.id,b.checked?"1":"0");syncLabel(b);update();});});
+}
+function update(){
+  const total=boxes.length,done=boxes.filter(b=>b.checked).length,pct=total?Math.round(done/total*100):0;
+  $("#ovBar").style.width=pct+"%";$("#ovText").textContent=`${done} / ${total} (${pct}%)`;
+  document.querySelectorAll('.mprog').forEach(el=>{const p=KEY+el.dataset.pfx+"_"+el.dataset.mi+"_";
+    const ms=boxes.filter(b=>b.id.startsWith(p));el.textContent=`${ms.filter(b=>b.checked).length}/${ms.length}`;});
+}
+function resetAll(){if(!confirm("ล้างการติ๊กทั้งหมด?"))return;boxes.forEach(b=>{b.checked=false;LS.setItem(b.id,"0");syncLabel(b);});update();}
+
+/* ---------- metrics before/after ---------- */
+const REG={};
+const METRICS_ADS=[
+ {g:"ประสิทธิภาพแอด — Baseline 2 เดือน (15 พ.ค.–14 ก.ค. 2026)"},
+ {label:"Blended ROAS (ภาพรวม)",u:"x",better:"up"},
+ {label:"CPA / ต้นทุนต่อการซื้อ",u:"฿",better:"down"},
+ {label:"CPL (ต้นทุนต่อแชท) เฉลี่ย",u:"฿",better:"down",b:"19.78",t:"16.80"},
+ {label:"ต้นทุนต่อไลก์เพจ เฉลี่ย",u:"฿",better:"down",b:"1.83",t:"1.55"},
+ {label:"CTR เฉลี่ย (รวมทุกวัตถุประสงค์)",u:"%",better:"up",b:"0.79"},
+ {label:"CPC เฉลี่ย",u:"฿",better:"down",b:"1.95",t:"1.66"},
+ {label:"CPM เฉลี่ย",u:"฿",better:"down",b:"15.41",t:"15.00"},
+];
+const WEB_SITES=[
+ "🔴 Hiracer","🔴 Delta","🔴 EDEN",
+ "Noisy Music Shop","HXM","Aroma","Avatar","Glory-M",
+ "Mega Play Water Sports","Alpha","Sublue","Innodigym","Sport all",
+];
+/* PageSpeed baseline [mobile, desktop] — ผล PageSpeed Insights 15 ก.ค. 2026 (Hiracer วัด 22 ก.ย. 2026 หลัง publish) */
+const PS={
+ "Noisy Music Shop":[38,66],"HXM":[44,49],"Aroma":[40,41],"Avatar":[34,39],
+ "Alpha":[45,59],"Mega Play Water Sports":[2,4],"Innodigym":[58,62],"Sport all":[64,61],"Sublue":[53,64],
+ "🔴 Hiracer":[91,86],
+ "🔴 Delta":[69,91], /* วัด 6 ต.ค. 2026 (ก่อนปรับ) */
+};
+/* คะแนน SEO (Lighthouse) จาก PageSpeed Insights 15 ก.ค. 2026 (Hiracer วัด 22 ก.ย. 2026) */
+const SEOSCORE={
+ "Noisy Music Shop":92,"HXM":92,"Aroma":83,"Avatar":83,"Alpha":92,"Mega Play Water Sports":83,"Innodigym":92,"Sport all":92,"Sublue":92,
+ "🔴 Hiracer":100,
+};
+/* PageSpeed หลังทำ [mobile, desktop] — วัดจริง 22 ก.ย. 2026 (HXM: Performance = Error NO_LCP ทั้ง 2 form-factor วัดค่าไม่ได้) */
+const PS_AFTER={
+ "Noisy Music Shop":[84,65],"Aroma":[70,28],"Alpha":[46,67],
+ "🔴 Delta":[80,90], /* PageSpeed Insights 14 ต.ค. 2026 9:05 · mobile 80 / desktop 90 (Accessibility 90/89 · Best Practices 100/100 · SEO 92/92) */
+};
+/* คะแนน SEO (Lighthouse) หลังทำ — วัดจริง 22 ก.ย. 2026 */
+const SEOSCORE_AFTER={
+ "Noisy Music Shop":100,"HXM":92,"Aroma":92,"Alpha":100,
+ "🔴 Delta":92,
+};
+/* Organic Traffic (sessions/28 วัน) — GA4 "Traffic acquisition > Organic Search", วัดจริง 22 ก.ย. 2026
+   เว็บที่ยังไม่มีงานปรับปรุงในรอบนี้ = ใส่เป็น baseline (ก่อนทำ); เว็บที่ทำงานเสร็จแล้ว (HXM/Alpha/Aroma) = ใส่เป็นผลหลังทำ */
+const ORGANIC={
+ "Noisy Music Shop":686,"Avatar":297,"Glory-M":1,"Innodigym":63,"Sublue":89,"Sport all":330,
+ "🔴 Hiracer":20,
+};
+const ORGANIC_AFTER={
+ "HXM":278,"Alpha":430,"Aroma":192,
+};
+const SEO_ROWS=[
+ {label:"PageSpeed (Mobile)",u:"/100",better:"up",ps:0,t:"75"},
+ {label:"PageSpeed (Desktop)",u:"/100",better:"up",ps:1,t:"90"},
+ {label:"SEO Score (Lighthouse)",u:"/100",better:"up",seo:1,t:"95"},
+ {label:"Organic Traffic / เดือน",u:"sessions",better:"up",og:1},
+ {label:"หน้าที่ทำ SEO เสร็จ",u:"หน้า",better:"up",t:"5"},
+ {label:"Broken links",u:"%",better:"down",t:"0"},
+ {label:"คีย์เวิร์ดติดหน้าแรก Google",u:"คำ",better:"up"},
+];
+const METRICS_WEB=[];
+WEB_SITES.forEach(site=>{
+ METRICS_WEB.push({g:site});
+ SEO_ROWS.forEach(r=>{ const row={label:r.label,u:r.u,better:r.better,id:site+"::"+r.label};
+   if(r.ps!==undefined && PS[site] && PS[site][r.ps]!=null) row.b=String(PS[site][r.ps]);
+   if(r.seo && SEOSCORE[site]!=null) row.b=String(SEOSCORE[site]);
+   if(r.ps!==undefined && PS_AFTER[site] && PS_AFTER[site][r.ps]!=null) row.a=String(PS_AFTER[site][r.ps]);
+   if(r.seo && SEOSCORE_AFTER[site]!=null) row.a=String(SEOSCORE_AFTER[site]);
+   if(r.og && ORGANIC[site]!=null) row.b=String(ORGANIC[site]);
+   if(r.og && ORGANIC_AFTER[site]!=null) row.a=String(ORGANIC_AFTER[site]);
+   if(r.t) row.t=r.t;
+   METRICS_WEB.push(row); });
+});
+function renderMetrics(rootId,arr,pfx){
+  REG[pfx]=arr;
+  arr.forEach(r=>{if(!r.g&&!r.id)r.id=r.label;});                 // key ผูกกับ id คงที่ (ไม่ใช่ index)
+  const mk=(id,f)=>KEY+"M_"+pfx+"_"+id+"_"+f;
+  arr.forEach(r=>{if(r.b&&r.id&&LS.getItem(mk(r.id,'b'))===null)LS.setItem(mk(r.id,'b'),r.b);});
+  arr.forEach(r=>{if(r.t&&r.id&&LS.getItem(mk(r.id,'t'))===null)LS.setItem(mk(r.id,'t'),r.t);});
+  arr.forEach(r=>{if(r.a&&r.id&&LS.getItem(mk(r.id,'a'))===null)LS.setItem(mk(r.id,'a'),r.a);});
+  let rows='';
+  arr.forEach((r,i)=>{
+    if(r.g){rows+=`<tr class="grp"><td colspan="6">${r.g}</td></tr>`;return;}
+    rows+=`<tr><td class="metric">${r.label}</td><td style="text-align:center;color:#8a94a0">${r.u}</td>
+      <td><input data-k="${mk(r.id,'b')}" data-p="${pfx}" data-i="${i}" inputmode="decimal" placeholder="—"></td>
+      <td><input data-k="${mk(r.id,'t')}" data-p="${pfx}" data-i="${i}" inputmode="decimal" placeholder="—"></td>
+      <td><input data-k="${mk(r.id,'a')}" data-p="${pfx}" data-i="${i}" inputmode="decimal" placeholder="—"></td>
+      <td class="chg flat" id="chg_${pfx}_${i}">—</td></tr>`;
+  });
+  $("#"+rootId).innerHTML=`<table class="mtable"><tr><th style="text-align:left">ตัวชี้วัด</th><th>หน่วย</th><th>ก่อนทำ</th><th>เป้าหมาย</th><th>หลังทำ</th><th>เปลี่ยน</th></tr>${rows}</table>`;
+  $("#"+rootId).querySelectorAll('input').forEach(inp=>{inp.value=LS.getItem(inp.dataset.k)||"";
+    inp.addEventListener('input',()=>{LS.setItem(inp.dataset.k,inp.value);chg(inp.dataset.p,+inp.dataset.i);});});
+  arr.forEach((r,i)=>{if(!r.g)chg(pfx,i);});
+}
+function chg(pfx,i){
+  const r=REG[pfx][i];if(!r||r.g)return;
+  const el=document.getElementById('chg_'+pfx+'_'+i);if(!el)return;
+  const b=parseFloat(LS.getItem(KEY+"M_"+pfx+"_"+r.id+"_b")),a=parseFloat(LS.getItem(KEY+"M_"+pfx+"_"+r.id+"_a"));
+  if(isNaN(b)||isNaN(a)||b===0){el.textContent='—';el.className='chg flat';return;}
+  const pct=(a-b)/Math.abs(b)*100,bt=r.better,good=(bt==='up'&&a>b)||(bt==='down'&&a<b),bad=(bt==='up'&&a<b)||(bt==='down'&&a>b);
+  el.textContent=(pct>=0?'+':'')+pct.toFixed(1)+'%';el.className='chg '+(good?'up':bad?'down':'flat');
+}
+
+/* ---------- per-campaign ---------- */
+const CAMP=[
+ {n:"Innodigym Messages",o:"Messages",oc:"#7c3aed",s:"฿5,476.57",r:"167 สนทนา",c:"฿32.79",cn:32.79,ctr:"7.79%",cpc:"฿2.92",cpm:"฿227.82"},
+ {n:"Noisy music shop (Awareness)",o:"Awareness",oc:"#1877f2",s:"฿4,542.75",r:"2,050 ad recall",c:"฿2.22",cn:2.22,ctr:"0.10%",cpc:"฿8.49",cpm:"฿8.49"},
+ {n:"Innodigym Photo Engage",o:"Messages",oc:"#7c3aed",s:"฿3,724.24",r:"65 สนทนา",c:"฿57.30",cn:57.30,ctr:"3.84%",cpc:"฿4.42",cpm:"฿169.64"},
+ {n:"Aroma Reel",o:"Awareness",oc:"#1877f2",s:"฿2,644.12",r:"339,719 reach",c:"฿7.78",cn:7.78,ctr:"0.57%",cpc:"฿1.22",cpm:"฿6.93"},
+ {n:"Sublue Cold 2026",o:"Messages",oc:"#7c3aed",s:"฿1,831.54",r:"330 สนทนา",c:"฿5.55",cn:5.55,ctr:"11.13%",cpc:"฿0.79",cpm:"฿87.57"},
+ {n:"HXM HDP-1X",o:"Awareness",oc:"#1877f2",s:"฿1,727.89",r:"243,471 reach",c:"฿7.10",cn:7.10,ctr:"0.21%",cpc:"฿3.34",cpm:"฿6.96"},
+ {n:"Hailun กดไลค์เพจ (13/06)",o:"Page Likes",oc:"#db2777",s:"฿1,622.22",r:"1,056 likes",c:"฿1.54",cn:1.54,ctr:"5.77%",cpc:"฿0.78",cpm:"฿45.06"},
+ {n:"Fortune Guitar Summit",o:"Awareness",oc:"#1877f2",s:"฿1,489.89",r:"236,990 reach",c:"฿6.29",cn:6.29,ctr:"0.10%",cpc:"฿5.96",cpm:"฿6.14"},
+ {n:"Noisy กีตาร์ล้างสต็อก",o:"Awareness",oc:"#1877f2",s:"฿1,454.99",r:"190,789 reach",c:"฿7.63",cn:7.63,ctr:"0.32%",cpc:"฿2.21",cpm:"฿7.01"},
+ {n:"innodigym กดไลค์เพจ",o:"Page Likes",oc:"#db2777",s:"฿1,258.40",r:"484 likes",c:"฿2.60",cn:2.60,ctr:"8.48%",cpc:"฿1.74",cpm:"฿147.66"},
+ {n:"Hailun กดไลค์เพจ (23/06)",o:"Page Likes",oc:"#db2777",s:"฿1,078.34",r:"625 likes",c:"฿1.73",cn:1.73,ctr:"5.49%",cpc:"฿0.99",cpm:"฿54.17"},
+ {n:"Megaplay Messages",o:"Messages",oc:"#7c3aed",s:"฿1,033.71",r:"48 สนทนา",c:"฿21.54",cn:21.54,ctr:"6.41%",cpc:"฿0.97",cpm:"฿62.11"},
+];
+function renderCampBase(){
+  const rows=CAMP.map((c,i)=>`<tr>
+    <td class="metric" style="min-width:170px">${c.n}</td>
+    <td style="text-align:center"><span style="display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:${c.oc};padding:1px 9px;border-radius:20px">${c.o}</span></td>
+    <td style="text-align:right">${c.s}</td><td style="text-align:right">${c.r}</td>
+    <td style="text-align:right;font-weight:800">${c.c}</td>
+    <td><input data-ck="${KEY}camp_${i}_after" data-ci="${i}" inputmode="decimal" placeholder="—" style="width:74px"></td>
+    <td class="chg flat" id="cchg_${i}" style="text-align:right">—</td>
+    <td style="text-align:right">${c.ctr}</td><td style="text-align:right">${c.cpc}</td><td style="text-align:right">${c.cpm}</td>
+    <td style="text-align:right;color:#9aa5b1">—</td><td style="text-align:right;color:#9aa5b1">—</td></tr>`).join('');
+  $("#campbase").innerHTML=`<div style="overflow-x:auto"><table class="mtable" style="min-width:1120px">
+   <tr><th style="text-align:left">แคมเปญ</th><th>วัตถุประสงค์</th><th>ค่าโฆษณา</th><th>ผลลัพธ์</th><th>ต้นทุน/ผล<br>ก่อน</th><th>ต้นทุน/ผล<br>หลังทำ</th><th>เปลี่ยน</th><th>CTR</th><th>CPC</th><th>CPM</th><th>ROAS</th><th>CPA</th></tr>${rows}</table></div>
+   <div class="msub" style="margin-top:8px">* ROAS/CPA รายแคมเปญเป็น "—" เพราะ Meta ไม่มียอดขายต่อแคมเปญ (ดึงจาก LINE/Shopee + promo code)</div>`;
+  document.querySelectorAll('#campbase input').forEach(inp=>{inp.value=LS.getItem(inp.dataset.ck)||"";
+    inp.addEventListener('input',()=>{LS.setItem(inp.dataset.ck,inp.value);campChg(+inp.dataset.ci);});});
+  CAMP.forEach((c,i)=>campChg(i));
+}
+function campChg(i){
+  const el=document.getElementById('cchg_'+i);if(!el)return;
+  const b=CAMP[i].cn,a=parseFloat(LS.getItem(KEY+'camp_'+i+'_after'));
+  if(isNaN(a)||!b){el.textContent='—';el.className='chg flat';return;}
+  const pct=(a-b)/Math.abs(b)*100;el.textContent=(pct>=0?'+':'')+pct.toFixed(1)+'%';el.className='chg '+(a<b?'up':a>b?'down':'flat');
+}
+
+/* ---------- tabs ---------- */
+function showTab(id,btn){
+  document.querySelectorAll('.tabpane').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* ---------- init ---------- */
+renderSites();
+renderPlan('planWeb',PLAN_WEB,'web');
+renderPlan('planAds',PLAN_ADS,'ads');
+bindBoxes();
+renderMetrics('metricsWeb',METRICS_WEB,'mw');
+renderMetrics('metricsAds',METRICS_ADS,'ma');
+renderCampBase();
+update();
+
+/* ---------- สำรอง / นำเข้า ---------- */
+function backupTicks(){
+  const o={};LS.keys().forEach(k=>{o[k]=LS.getItem(k);});const t=JSON.stringify(o);
+  try{navigator.clipboard.writeText(t).then(()=>alert("คัดลอกรหัสสำรองแล้ว วางเก็บไว้ในโน้ต/ไฟล์ได้"),()=>prompt("คัดลอกรหัสนี้เก็บไว้",t));}catch(e){prompt("คัดลอกรหัสนี้เก็บไว้",t);}
+}
+function restoreTicks(){
+  const t=prompt("วางรหัสสำรอง");if(!t)return;
+  try{const o=JSON.parse(t);Object.keys(o).forEach(k=>{if(k.startsWith(KEY))LS.setItem(k,o[k]);});location.reload();}catch(e){alert("รหัสไม่ถูกต้อง");}
+}
+if(!PERSIST)document.getElementById("persistNote").style.display="block";
+</script>
+</body>
+</html>
