@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>สรุปแคมเปญ Google Ads - Alpha Kayaks + Delta (อัปเดต 10 ต.ค. 2026)</title>
+<style>
+  body {
+    font-family: 'Segoe UI', 'Noto Sans Thai', sans-serif;
+    background: #f4f6f8;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 40px 20px;
+    line-height: 1.7;
+  }
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.08);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a73e8, #0d47a1);
+    color: #fff;
+    padding: 32px 36px;
+  }
+  .header h1 { margin: 0 0 6px; font-size: 24px; }
+  .header p { margin: 0; opacity: .9; font-size: 14px; }
+  .badge {
+    display: inline-block;
+    background: #fbbc04;
+    color: #202124;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  .section { padding: 28px 36px; border-bottom: 1px solid #edf0f2; }
+  .section:last-child { border-bottom: none; }
+  .section h2 {
+    font-size: 17px;
+    color: #0d47a1;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table td { padding: 8px 0; vertical-align: top; }
+  table td.label { color: #5f6368; width: 150px; white-space: nowrap; }
+  table td.value { font-weight: 600; }
+  .tag-group { margin-bottom: 18px; }
+  .tag-group h3 { font-size: 14px; margin: 0 0 8px; color: #202124; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: #e8f0fe;
+    color: #1a73e8;
+    font-size: 13px;
+    padding: 5px 11px;
+    border-radius: 16px;
+  }
+  .tag.neg { background: #fce8e6; color: #c5221f; }
+  .ad-card {
+    background: #fafbfc;
+    border: 1px solid #e3e6e8;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .ad-card .headline-sample {
+    color: #1a0dab;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .ad-card .url-sample { color: #006621; font-size: 12px; margin-bottom: 6px; }
+  .ad-card .desc-sample { font-size: 13px; color: #4d5156; }
+  .steps { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 40px;
+    border-bottom: 1px dashed #e3e6e8;
+    font-size: 14px;
+  }
+  .steps li:last-child { border-bottom: none; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 8px;
+    width: 26px; height: 26px;
+    background: #1a73e8;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .note {
+    background: #fff8e1;
+    border-left: 4px solid #fbbc04;
+    padding: 12px 16px;
+    font-size: 13px;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
+  .link-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  @media (max-width: 480px) {
+    .header, .section { padding: 22px 20px; }
+    table td.label { width: 110px; }
+  }
+
+  .metric-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-bottom: 20px; }
+  .metric-table th {
+    text-align: left;
+    background: #f1f3f4;
+    color: #202124;
+    font-size: 12px;
+    padding: 9px 10px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  .metric-table td {
+    padding: 10px;
+    border-bottom: 1px solid #edf0f2;
+    vertical-align: top;
+  }
+  .metric-table tr:last-child td { border-bottom: none; }
+  .lvl {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .lvl.good { background: #e6f4ea; color: #137333; }
+  .lvl.warn { background: #fef7e0; color: #b06000; }
+  .lvl.bad  { background: #fce8e6; color: #c5221f; }
+
+  .qa-card {
+    background: #f8f9fe;
+    border: 1px solid #e3e6ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+  }
+  .qa-card .q {
+    font-weight: 700;
+    color: #0d47a1;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .qa-card .a { font-size: 13.5px; color: #3c4043; }
+  .qa-card .a b { color: #1a1a1a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>สรุปแคมเปญ Google Ads — Alpha Kayaks + Delta</h1>
+    <p>อัปเดต 24 ต.ค. 2026 (เพิ่มการทำซ้ำแคมเปญไปบัญชีใหม่) · บัญชี [เลขบัญชี] · แคมเปญ Alpha Kayaks (Recreation Kayak) และ Delta (Trolling Motor)</p>
+    <span class="badge">สถานะ: Alpha เปิดใช้งาน (ยังไม่มียอดแสดงผล) · Delta เปิดใช้งาน 10 ต.ค. · ยืนยันตัวตนผู้ลงโฆษณาผ่านแล้ว</span>
+  </div>
+
+  <div class="section">
+    <h2>🩺 สถานะจริง ณ 10 ต.ค. 2026 (ช่วง 3–9 ต.ค.)</h2>
+    <table class="metric-table">
+      <tr><th style="width:26%">รายการ</th><th style="width:30%">ผลที่ตรวจ</th><th>หมายเหตุ</th></tr>
+      <tr><td><b>Alpha Kayaks</b></td><td>สถานะ "มีสิทธิ์" · แสดงผล 0 · คลิก 0 · ฿0</td><td>โฆษณา 2 ชุดมีสิทธิ์ (คุณภาพ ดี / ปานกลาง) · คีย์เวิร์ด "เรือพลาสติกคุณภาพดี" ขึ้น "ไม่มีสิทธิ์ ปริมาณการค้นหาต่ำ" · ไม่มีการเปลี่ยนแปลงในประวัติ 7 วัน · ยังไม่พบสาเหตุแน่ชัด</td></tr>
+      <tr><td><b>การเรียกเก็บเงิน</b></td><td>ปกติ · ยอดคงเหลือปกติ</td><td>ตัดบัตรล่าสุด 3 ต.ค. · ยังไม่มีค่าใช้จ่ายจากแคมเปญ</td></tr>
+      <tr><td><b>ยืนยันตัวตนผู้ลงโฆษณา</b></td><td>ผ่านแล้ว 10 ต.ค.</td><td>ชื่อผู้ลงโฆษณา บริษัท กลอรี่ เอ็ม จำกัด (สำนักงานใหญ่) · ตอบ EU political ads = ไม่ · ก่อนหน้านี้ยังไม่ยืนยัน อาจเป็นสาเหตุที่ยังไม่แสดง จึงต้องติดตามหลังยืนยันผ่าน</td></tr>
+      <tr><td><b>Delta</b></td><td>เปิดใช้งาน 10 ต.ค. (กำลังเรียนรู้)</td><td>ยังไม่มีข้อมูลผลลัพธ์ (เพิ่งเปิด)</td></tr>
+    </table>
+    <div class="note">📌 รายงานฉบับ 3 ต.ค. ระบุว่า "ติด Conversion Tracking แล้ว" แต่ตรวจจริง: conversion "การดูหน้าเว็บ" ยัง "กำหนดค่าไม่ถูกต้อง" และตัวเก่า "Line"/"Shopee" (สร้างผ่าน API) นับไม่ได้ ตัวที่ใช้จริงคือ "Line Button Click" / "Shopee Button Click" ที่ติดผ่าน GTM — ต้องจัดการให้ตรงกันก่อนใช้ตัวเลข Conversion ไปรายงาน</div>
+  </div>
+
+  <div class="section">
+    <h2>📋 ข้อมูลแคมเปญ</h2>
+    <table>
+      <tr><td class="label">ชื่อแคมเปญ</td><td class="value">Alpha Kayaks - Recreation Kayak - Search TH</td></tr>
+      <tr><td class="label">Campaign ID</td><td class="value">24321127624</td></tr>
+      <tr><td class="label">ประเภท</td><td class="value">Search Campaign</td></tr>
+      <tr><td class="label">พื้นที่เป้าหมาย</td><td class="value">ประเทศไทย</td></tr>
+      <tr><td class="label">งบประมาณ</td><td class="value">245 บาท/วัน (≈ 7,350 บาท/เดือน)</td></tr>
+      <tr><td class="label">กลยุทธ์ประมูล</td><td class="value">เพิ่มจำนวนคลิกสูงสุด (Maximize Clicks) ตามที่ตั้งค่าในบัญชีจริง</td></tr>
+      <tr><td class="label">หน้า Landing Page</td><td class="value">alphakayaks.com — หมวด Recreation Kayaks</td></tr>
+    </table>
+    <a class="link-btn" href="https://ads.google.com/aw/campaigns?campaignId=24321127624" target="_blank">เปิดดูแคมเปญใน Google Ads →</a>
+  </div>
+
+  <div class="section">
+    <h2>🔑 คีย์เวิร์ดที่ตั้งไว้ (2 กลุ่มโฆษณา)</h2>
+
+    <div class="tag-group">
+      <h3>Ad Group 1 — คายัคท่องเที่ยวทั่วไป (9 คำ)</h3>
+      <div class="tags">
+        <span class="tag">คายัค</span><span class="tag">เรือคายัค</span><span class="tag">เรือพาย</span>
+        <span class="tag">เรือพลาสติก</span><span class="tag">เรือพายพลาสติก</span><span class="tag">ราคาเรือคายัค</span>
+        <span class="tag">ราคาเรือพลาสติก</span><span class="tag">เรือพลาสติกราคา</span><span class="tag">เรือพลาสติกราคาเท่าไหร่</span>
+      </div>
+    </div>
+
+    <div class="tag-group">
+      <h3>Ad Group 2 — ร้านขายเรือพลาสติก ราคา (6 คำ)</h3>
+      <div class="tags">
+        <span class="tag">เรือพลาสติกราคาโรงงาน</span><span class="tag">เรือพลาสติกคุณภาพดี</span>
+        <span class="tag">ขายเรือพลาสติกใกล้ฉัน</span><span class="tag">ร้านขายเรือพลาสติกใกล้ฉัน</span>
+        <span class="tag">ร้านขายเรือพลาสติก</span><span class="tag">ซื้อเรือพลาสติก</span>
+      </div>
+    </div>
+
+    <div class="tag-group">
+      <h3>🚫 Negative Keywords (กันคนหาคายัคตกปลา)</h3>
+      <div class="tags">
+        <span class="tag neg">ตกปลา</span><span class="tag neg">fishing</span><span class="tag neg">มอเตอร์</span>
+        <span class="tag neg">ตีเหยื่อ</span><span class="tag neg">หมายปลา</span><span class="tag neg">feelfree</span>
+        <span class="tag neg">มือสอง</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📢 ตัวอย่างโฆษณา (Responsive Search Ads)</h2>
+
+    <div class="ad-card">
+      <div class="headline-sample">เรือคายัคท่องเที่ยว ราคาดี | Alpha Kayaks เรือคายัคไทย</div>
+      <div class="url-sample">alphakayaks.com/products</div>
+      <div class="desc-sample">เรือคายัคท่องเที่ยว Alpha Kayaks น้ำหนักเบา พายง่าย เริ่มต้น 10,900 บาท ส่งทั่วไทย</div>
+    </div>
+
+    <div class="ad-card">
+      <div class="headline-sample">ร้านขายเรือคายัค ราคาโรงงาน | ซื้อตรงจากผู้ผลิตไทย</div>
+      <div class="url-sample">alphakayaks.com/products</div>
+      <div class="desc-sample">ร้านขายเรือคายัคพลาสติกคุณภาพดี ราคาคุ้มค่า เริ่มต้น 10,900 บาท ส่งทั่วไทย</div>
+    </div>
+
+    <p style="font-size:13px;color:#5f6368;">* แต่ละ Ad Group มีพาดหัว 15 แบบ และคำอธิบาย 4 แบบ ระบบจะสลับแสดงผลอัตโนมัติเพื่อหาคู่ที่ได้ผลดีที่สุด — ดูครบทุกคำได้ในหน้า Google Ads</p>
+  </div>
+
+  <div class="section">
+    <h2>📊 วิธีดูผลประสิทธิภาพ (สำหรับเอาไปคุย report กับหัวหน้า)</h2>
+    <p style="font-size:13.5px;color:#5f6368;margin-top:0;">เข้าไปดูตัวเลขจริงได้ที่หน้า Google Ads → เลือกแคมเปญ → แท็บ "Campaigns" จะเห็นคอลัมน์เหล่านี้ ถ้าไม่เห็นบางคอลัมน์ให้กดไอคอนรูปคอลัมน์ (Columns) มุมขวาบนแล้วติ๊กเพิ่ม</p>
+
+    <table class="metric-table">
+      <tr>
+        <th style="width:20%">เมตริก</th>
+        <th style="width:38%">ความหมาย</th>
+        <th style="width:42%">เกณฑ์คร่าวๆ สำหรับแคมเปญนี้</th>
+      </tr>
+      <tr>
+        <td><b>Impressions</b><br>(จำนวนแสดงผล)</td>
+        <td>โฆษณาถูกแสดงกี่ครั้ง (ยังไม่นับคลิก)</td>
+        <td>ถ้าต่ำมากตั้งแต่ต้น แปลว่าคีย์เวิร์ดมีคนค้นหาน้อย หรือ bid ต่ำเกินจนประมูลไม่ติด ไม่ใช่เรื่องงบ</td>
+      </tr>
+      <tr>
+        <td><b>Clicks</b><br>(จำนวนคลิก)</td>
+        <td>มีคนคลิกเข้าเว็บกี่ครั้ง</td>
+        <td>เทียบกับงบ 245 บาท/วัน และ CPC เฉลี่ย ~3-14 บาท ควรได้ประมาณ <b>17-80 คลิก/วัน</b> ถ้าต่ำกว่านี้มากให้ดู CTR และ Impression Share ต่อ</td>
+      </tr>
+      <tr>
+        <td><b>CTR</b><br>(Click-Through Rate)</td>
+        <td>% ของคนที่เห็นแล้วกดคลิก (Clicks ÷ Impressions)</td>
+        <td><span class="lvl good">ดี ≥ 5%</span> <span class="lvl warn">พอใช้ 2-5%</span> <span class="lvl bad">แย่ &lt; 2%</span><br>ถ้า CTR ต่ำ = พาดหัวโฆษณาไม่น่าสนใจพอ ไม่ใช่ปัญหาเรื่องงบ ต้องแก้ที่ข้อความโฆษณา</td>
+      </tr>
+      <tr>
+        <td><b>Avg. CPC</b><br>(ราคาต่อคลิกเฉลี่ย)</td>
+        <td>จ่ายเฉลี่ยกี่บาทต่อ 1 คลิก</td>
+        <td>ควรอยู่ราว <b>3-14 บาท</b> (ตามข้อมูล Keyword Planner) ถ้าสูงกว่านี้มากแปลว่าแข่งประมูลดุ อาจต้องรอ Quality Score ดีขึ้นเพื่อให้ CPC ลดลงเอง</td>
+      </tr>
+      <tr>
+        <td><b>Cost</b><br>(ค่าใช้จ่ายจริง)</td>
+        <td>เงินที่ใช้ไปจริงในแต่ละวัน</td>
+        <td>ควรใกล้เคียงงบ 245 บาท/วัน ถ้า<b>ใช้ไม่ถึงงบ</b>ตลอด = คีย์เวิร์ดหาคนไม่พอ (ไม่ใช่งบเกิน) ถ้า<b>เกินงบบ่อย</b> = ต้องเช็ค bid strategy</td>
+      </tr>
+      <tr>
+        <td><b>Conversions</b><br>(การกระทำที่ต้องการ)</td>
+        <td>จำนวนครั้งที่คนคลิกแล้ว "ทำสิ่งที่ต้องการ" เช่น สั่งซื้อ/ทักไลน์/กดไป Shopee</td>
+        <td>✅ ติดตั้ง Conversion Tracking แล้ว (ดูรายละเอียดด้านล่าง) แต่ข้อมูลยังเป็น 0 เพราะเพิ่งติดตั้ง — ต้องรอ 24-48 ชม. ให้ระบบเริ่มเก็บข้อมูล ก่อนจะเอาไปสรุป report ได้จริง</td>
+      </tr>
+      <tr>
+        <td><b>Cost / Conv.</b><br>(ต้นทุนต่อ 1 ยอดขาย)</td>
+        <td>จ่ายค่าโฆษณาเท่าไหร่ถึงได้ลูกค้า 1 คน</td>
+        <td>เทียบกับกำไรต่อชิ้น (สินค้า 10,900-28,900 บาท) ถ้า Cost/Conv. ต่ำกว่ากำไรมาก = คุ้ม ถ้าสูงใกล้เคียงหรือเกินกำไร = ไม่คุ้ม ต้องปรับ</td>
+      </tr>
+      <tr>
+        <td><b>Search Impr. Share</b><br>(ส่วนแบ่งการแสดงผล)</td>
+        <td>% ของโอกาสประมูลทั้งหมดที่โฆษณาได้แสดงจริง</td>
+        <td><span class="lvl good">ดี ≥ 65%</span> <span class="lvl bad">ต่ำ &lt; 40%</span> ถ้าต่ำ ให้ดูสาเหตุที่ Google ระบุ (เสียเพราะงบ หรือเสียเพราะ Rank)</td>
+      </tr>
+      <tr>
+        <td><b>Search Lost IS (Budget)</b></td>
+        <td>% โอกาสที่เสียไปเพราะ "งบไม่พอ"</td>
+        <td>ถ้าตัวนี้สูง (&gt;20%) = <b>งบน้อยเกินไป</b> ควรเพิ่มงบ ถ้าตัวนี้ใกล้ 0% = งบเพียงพอแล้ว ไม่ต้องเพิ่ม</td>
+      </tr>
+      <tr>
+        <td><b>Quality Score</b><br>(คะแนนคุณภาพ 1-10 ต่อคีย์เวิร์ด)</td>
+        <td>Google ให้คะแนนความเกี่ยวข้องของคีย์เวิร์ด/โฆษณา/หน้าเว็บ</td>
+        <td><span class="lvl good">ดี 7-10</span> <span class="lvl warn">กลาง 5-6</span> <span class="lvl bad">แย่ 1-4</span> คะแนนสูง = CPC ถูกลงอัตโนมัติ คะแนนต่ำ = ต้องปรับข้อความโฆษณาหรือหน้า Landing Page</td>
+      </tr>
+    </table>
+
+    <p style="font-weight:700;font-size:14px;margin:18px 0 10px;color:#202124;">❓ คำถามที่หัวหน้ามักถาม → ดูตรงไหนตอบ</p>
+
+    <div class="qa-card">
+      <div class="q">"งบสูงไปไหม?"</div>
+      <div class="a">ดูที่ <b>Search Lost IS (Budget)</b> — ถ้าใกล้ 0% แปลว่างบพอดีหรือเหลือ ไม่ได้สูงเกินไป ถ้า <b>Cost ต่ำกว่างบที่ตั้งทุกวัน</b> (ใช้ไม่เต็ม) นั่นคือสัญญาณว่างบ "เกินความต้องการ" ของตลาดตอนนี้ ไม่ใช่ว่างบสูงเกินจนเสียหาย</div>
+    </div>
+    <div class="qa-card">
+      <div class="q">"ยอดคลิกน้อยไปไหม?"</div>
+      <div class="a">เทียบ Clicks จริงกับช่วงคาดการณ์ 17-80 คลิก/วัน ถ้าน้อยกว่านี้มาก ให้ดูต่อว่า <b>Impressions ต่ำ</b> (คนค้นน้อย/bid ต่ำ) หรือ <b>CTR ต่ำ</b> (คนเห็นแต่ไม่คลิก เพราะโฆษณาไม่น่าสนใจ) สองสาเหตุนี้แก้ไม่เหมือนกัน</div>
+    </div>
+    <div class="qa-card">
+      <div class="q">"คุ้มไหม ควรเพิ่มงบหรือหยุด?"</div>
+      <div class="a">ตอบได้แม่นที่สุดต้องรอ <b>Conversion Tracking</b> ติดตั้งก่อน แล้วดู Cost/Conv. เทียบกับกำไรต่อชิ้น ถ้ายังไม่มีข้อมูลนี้ ให้รายงานหัวหน้าว่า "อยู่ระหว่างช่วงเก็บข้อมูล 1-2 สัปดาห์แรก" เป็นเรื่องปกติของแคมเปญใหม่</div>
+    </div>
+    <div class="note">
+      💡 สรุปสั้นๆ ให้หัวหน้า: ช่วง 1-2 สัปดาห์แรกของแคมเปญใหม่ตัวเลขจะยังไม่นิ่ง เป็นช่วง "เรียนรู้" ของระบบ Google ยังไม่ควรสรุปว่าคุ้มหรือไม่คุ้มจนกว่าจะมีข้อมูล Conversion อย่างน้อย 1-2 สัปดาห์
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Conversion Tracking ที่ติดตั้งแล้ว</h2>
+    <p style="font-size:13.5px;color:#5f6368;margin-top:0;">ตั้งค่าการวัดผล 4 รายการในบัญชี Google Ads เพื่อรู้ว่าคลิกโฆษณาไหนแปลงเป็นยอดขาย/ลูกค้าจริงบ้าง</p>
+
+    <table class="metric-table">
+      <tr>
+        <th style="width:28%">Conversion Action</th>
+        <th style="width:24%">ประเภท</th>
+        <th style="width:48%">วัดจากอะไร</th>
+      </tr>
+      <tr>
+        <td><b>Line</b><br><span style="color:#137333;font-size:12px;font-weight:700;">Primary</span></td>
+        <td>Contact</td>
+        <td>คลิกปุ่ม "สนใจสั่งซื้อ" ซึ่งเปลี่ยนให้เปิดแชท LINE โดยตรงแล้ว (เดิมเป็นฟอร์มป๊อปอัป) — ช่องทางปิดการขายจริงหลักของธุรกิจ</td>
+      </tr>
+      <tr>
+        <td><b>Shopee</b><br><span style="color:#137333;font-size:12px;font-weight:700;">Primary</span></td>
+        <td>Outbound click</td>
+        <td>คลิกปุ่มไปหน้าร้าน Shopee — ช่องทางปิดการขายจริงอีกช่องทางหนึ่ง</td>
+      </tr>
+      <tr>
+        <td><b>Website traffic</b><br><span style="color:#5f6368;font-size:12px;">Primary</span></td>
+        <td>Page view</td>
+        <td>คนเข้าชมหน้าเว็บ (วัดการมองเห็น/engagement เบื้องต้น)</td>
+      </tr>
+    </table>
+    <div class="note" style="background:#e6f4ea;border-left-color:#137333;">
+      📌 ปรับเป้าหมายให้ตรงความจริงของธุรกิจ: เดิมมี "Online Purchase - Checkout" เป็น Primary goal อยู่ด้วย แต่เนื่องจากร้านปิดการขายจริงผ่าน <b>LINE และ Shopee เท่านั้น</b> ไม่มีลูกค้าสั่งซื้อผ่านระบบตะกร้าบนเว็บ จึงลบ action นี้ออก และตั้งให้ <b>"Line" กับ "Shopee" เป็น Primary goal แทน</b> เพื่อให้ระบบ ระบบเล็งงบไปที่ 2 ช่องทางที่ขายได้จริง (ปัจจุบันแคมเปญใช้กลยุทธ์เพิ่มจำนวนคลิกสูงสุด)
+    </div>
+
+    <p style="font-weight:700;font-size:14px;margin:18px 0 10px;color:#202124;">🔧 สิ่งที่ทำเพิ่มระหว่างติดตั้ง</p>
+    <ul class="steps">
+      <li>เปลี่ยนลิงก์ปุ่ม "สนใจสั่งซื้อ" บนหน้าสินค้าทุกชิ้น จากฟอร์มป๊อปอัป → เปิดแชท LINE โดยตรง (ลดขั้นตอน เพิ่มโอกาสปิดการขาย)</li>
+      <li>ติดตั้งแท็ก Google Ads (AW-xxxxxxxxx) ลงใน Google Tag Manager ของเว็บไซต์ ให้ทำงานทุกหน้า — เป็นตัวที่ขาดไป ทำให้ก่อนหน้านี้ยังไม่มีข้อมูลเข้าเลย</li>
+      <li>เปิดใช้ระบบ Enhanced Measurement ของ Google ให้ตรวจจับ "คลิกออกนอกเว็บ" อัตโนมัติ (ครอบคลุมทั้งปุ่ม LINE และ Shopee โดยไม่ต้องเขียนโค้ดเพิ่ม)</li>
+      <li>ลบ "Online Purchase - Checkout" ออก (ไม่มีการใช้งานจริง) และตั้ง "Line" + "Shopee" เป็น Primary goal แทน</li>
+    </ul>
+    <div class="note">
+      ⏳ ข้อมูลจะเริ่มขึ้นหลังติดตั้ง 24-48 ชั่วโมง กลับมาเช็คที่ Google Ads → Conversions ว่าสถานะ "Line"/"Shopee" เปลี่ยนจาก "ไม่ใช้งาน" เป็น "ใช้งานได้" หรือยัง
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ สิ่งที่ทำไปแล้ว</h2>
+    <ul class="steps">
+      <li>เชื่อมบัญชี Google Ads ([เลขบัญชี]) เข้ากับ Adspirer เรียบร้อย</li>
+      <li>ค้นคำคีย์เวิร์ดจริงจาก Google Keyword Planner พร้อมข้อมูล CPC และปริมาณการค้นหา</li>
+      <li>สร้างแคมเปญ Search แยกเฉพาะคายัคท่องเที่ยว ไม่ปนกับคายัคตกปลา</li>
+      <li>ตั้งค่า Negative Keywords กันไม่ให้โฆษณาขึ้นกับคนหาคายัคตกปลา/แบรนด์คู่แข่ง</li>
+      <li>สร้างโฆษณา 2 ชุด (15 พาดหัว + 4 คำอธิบายต่อชุด) เชื่อมไปหน้า Recreation Kayaks</li>
+      <li>ตั้งงบ 245 บาท/วัน ตามคำแนะนำระดับกลางจากข้อมูล CPC จริง</li>
+      <li>เปิดใช้งานแคมเปญจริง (Resume) — กำลังใช้งบและแสดงผลอยู่</li>
+      <li>เปลี่ยนลิงก์ปุ่ม "สนใจสั่งซื้อ" เป็นเปิดแชท LINE โดยตรง</li>
+      <li>ติดตั้ง Conversion Tracking (Line, Shopee, Website traffic) พร้อมติดแท็ก Google Ads ลง Google Tag Manager ของเว็บไซต์ (ตรวจ 10 ต.ค.: Line/Shopee ใหม่ใช้งาน, การดูหน้าเว็บยังกำหนดค่าไม่ถูกต้อง)</li>
+      <li>10 ต.ค.: ตรวจแคมเปญ Alpha (ยอดแสดงผล 0), ยืนยันตัวตนผู้ลงโฆษณาผ่าน, ตรวจการเรียกเก็บเงินปกติ</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>👉 สิ่งที่คุณต้องทำต่อ</h2>
+    <ul class="steps">
+      <li>เช็กยอดแสดงผล Alpha Kayaks หลังยืนยันตัวตนผ่าน (ภายใน 1–2 วัน) ถ้ายังเป็น 0 ให้ดู Search terms, ปริมาณค้นหา และเพดานราคาประมูล</li>
+      <li>แก้ conversion "การดูหน้าเว็บ" ที่กำหนดค่าไม่ถูกต้อง และจัดการ conversion เก่า "Line"/"Shopee" ไม่ให้ซ้ำซ้อน</li>
+      <li>หลังมีข้อมูล Conversion อย่างน้อย 1-2 สัปดาห์ ดู Cost/Conv. เทียบกับกำไรต่อชิ้น เพื่อตัดสินใจว่าคุ้มหรือควรปรับงบ</li>
+      <li>พิจารณาเปลี่ยนกลยุทธ์ประมูลเป็น Target CPA เมื่อมีข้อมูล Conversion มากพอ</li>
+      <li>เข้าไปตรวจสอบพาดหัว/คำอธิบายโฆษณาในหน้า Google Ads เป็นระยะว่ายังตรงแบรนด์อยู่</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🆕 อัปเดต 24 ต.ค. 2026 — ทำซ้ำ Alpha + Delta ไปบัญชี Ads ใหม่ (Glory M Co., Ltd.)</h2>
+    <p style="font-size:13.5px;color:#5f6368;margin-top:0;">คัดลอกแคมเปญ Search ของ Alpha และ Delta จากบัญชีเดิมไปบัญชีใหม่ สร้างด้วย Bulk upload (CSV) แบบ <b>หยุดชั่วคราว (Paused)</b> ผู้ใช้เติมเงินทั้งสองบัญชีแล้วและเป็นผู้เปิดแคมเปญเอง</p>
+    <table class="metric-table">
+      <tr><th style="width:24%">แคมเปญ (บัญชีใหม่)</th><th style="width:38%">การตั้งค่า</th><th>โครงสร้าง</th></tr>
+      <tr><td><b>Alpha Kayaks - Search TH</b><br>ID 24391613738</td><td>งบ 245 บาท/วัน · Maximize clicks · ประเทศไทย · ภาษาไทย · ปิด Display</td><td>2 กลุ่มโฆษณา · 2 โฆษณา · 25 คีย์เวิร์ด (ต้นทาง 39) · สถานะ Paused</td></tr>
+      <tr><td><b>Delta - Trolling Motor - Search TH</b><br>ID 24391591103</td><td>งบ 300 บาท/วัน · Maximize clicks · ประเทศไทย · ภาษาไทย · ปิด Display</td><td>3 กลุ่มโฆษณา (มอเตอร์เรือ 21 · รุ่น/สเปค 8 · คายัค/ตกปลา 5 = 34 คีย์เวิร์ด) · 3 โฆษณา · สถานะ Paused</td></tr>
+    </table>
+    <p style="font-weight:700;font-size:14px;margin:18px 0 10px;color:#202124;">✅ สิ่งที่ทำไปแล้ว</p>
+    <ul class="steps">
+      <li>อ่านค่าจากแคมเปญต้นทาง (งบ วิธีประมูล คีย์เวิร์ด ข้อความโฆษณา URL) แล้วสร้างในบัญชีใหม่ผ่าน Bulk upload</li>
+      <li>ตรวจ URL ปลายทางของ Alpha และ Delta เข้าได้ และราคา/รุ่น/ข้อมูลร้านตรงกับข้อความโฆษณา</li>
+      <li>แก้ข้อความโฆษณา Delta จาก "45-100 ปอนด์" เป็น "45-70 ปอนด์" ทั้ง 3 กลุ่ม ให้ตรงหน้าสินค้า</li>
+      <li>เพิ่มพื้นที่ "ประเทศไทย" ให้ Alpha (เดิมไม่มี จะยิงทั่วโลก) และตรวจแล้ว</li>
+      <li>หยุดชั่วคราวโฆษณา Delta ที่ซ้ำ 3 ตัว (ไม่ลบ)</li>
+      <li>ตรวจแล้วว่าแคมเปญเก่าในบัญชีใหม่หยุดหรือสิ้นสุดทั้งหมด</li>
+      <li>เติมเงินทั้งสองบัญชีแล้ว (ตามที่ผู้ใช้แจ้ง · ยอดเก็บในเอกสารภายใน) และอัปโหลดรายงานฉบับตัดข้อมูลสำคัญขึ้น GitHub</li>
+    </ul>
+    <p style="font-weight:700;font-size:14px;margin:18px 0 10px;color:#202124;">⚠️ ปัญหาที่เจอและวิธีแก้</p>
+    <table class="metric-table">
+      <tr><th style="width:36%">ปัญหา</th><th>วิธีแก้ / สถานะ</th></tr>
+      <tr><td>CSV รอบแรกถูกปฏิเสธ (คอลัมน์ "Budget type" แก้ไม่ได้ · ต้องกำหนด EU political ads)</td><td>ตัดคอลัมน์ Budget type · ใส่ EU political ads = No ทั้งแถวแคมเปญและแถวสถานที่ · แก้แล้ว</td></tr>
+      <tr><td>โฆษณา Alpha อัปโหลดไม่เข้า ("An error occurred") เพราะชื่อแคมเปญชนกับร่างที่ตัวสร้างแคมเปญทิ้งไว้</td><td>เปลี่ยนชื่อเป็น "Alpha Kayaks - Search TH" · แก้แล้ว</td></tr>
+      <tr><td>Alpha ไม่มีการกำหนดพื้นที่ (จะแสดงทั่วโลก)</td><td>เพิ่มประเทศไทยใน Locations · แก้แล้ว</td></tr>
+      <tr><td>อัปโหลดซ้ำหลายรอบ ทำให้ Delta มีโฆษณาซ้ำ</td><td>หยุดชั่วคราวตัวซ้ำ 3 ตัว · แก้แล้ว</td></tr>
+      <tr><td>ข้อความ Delta "45-100 ปอนด์" ไม่ตรงหน้าสินค้า (45-70)</td><td>แก้เป็น "45-70 ปอนด์" · แก้แล้ว</td></tr>
+      <tr><td>หน้ารายละเอียด error ของ Google โหลดไม่ขึ้น จึงยังไม่ทราบ error 1 รายการสุดท้าย</td><td><b>ยังค้าง</b> · ตรวจต่อ</td></tr>
+    </table>
+    <p style="font-weight:700;font-size:14px;margin:18px 0 10px;color:#202124;">↔️ ค่าที่ต่างจากต้นทาง / ที่ต้องทำต่อ</p>
+    <ul class="steps">
+      <li>ต่างจากต้นทาง: ปิด Display · ภาษาไทยอย่างเดียว (ยังไม่ได้ตรวจยืนยันในหน้าตั้งค่า) · Alpha ใส่ 25 จาก 39 คีย์เวิร์ด · Delta ทั้ง 3 กลุ่มใช้ข้อความโฆษณาชุดเดียวกัน</li>
+      <li>เปิดแคมเปญหลังตรวจว่าเงินเข้าและแบนเนอร์ "เงินคงเหลือหมด" หายไป แล้วตรวจสถานะอนุมัติโฆษณา</li>
+      <li>เพิ่มลิงก์เครื่องคำนวณแบตเตอรี่ (deltaspeedlab.com/blog/trolling-motor-runtime-calculator/) ในหน้าสินค้า Delta เพราะคำอธิบายโฆษณากล่าวถึง</li>
+      <li>บัญชีใหม่ยังไม่มี conversion tracking ชุดเดียวกับบัญชีเดิม ต้องตั้งก่อนดูผล</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🚤 แคมเปญ Delta — Delta - Trolling Motor - Search TH</h2>
+    <table>
+      <tr><td class="label">Campaign ID</td><td class="value">24338902205 · เปิดใช้งาน 10 ต.ค. 2026</td></tr>
+      <tr><td class="label">ประเภท / เครือข่าย</td><td class="value">Search · Google Search เท่านั้น (ปิด Display และ Search partners)</td></tr>
+      <tr><td class="label">พื้นที่ / ภาษา</td><td class="value">ประเทศไทย · ไทย</td></tr>
+      <tr><td class="label">งบประมาณ</td><td class="value">300 บาท/วัน (≈ 9,000 บาท/เดือน)</td></tr>
+      <tr><td class="label">กลยุทธ์ประมูล</td><td class="value">เพิ่มจำนวนคลิกสูงสุด · เพดาน CPC 20 บาท · ปิด AI Max</td></tr>
+      <tr><td class="label">Landing Page</td><td class="value">https://www.deltaspeedlab.com/ · path /มอเตอร์ไกด์/Delta</td></tr>
+      <tr><td class="label">เป้าหมาย</td><td class="value">คลิกช่องทางซื้อ/ติดต่อ (LINE, Shopee, Lazada, TikTok Shop, โทร)</td></tr>
+    </table>
+    <div class="tag-group" style="margin-top:14px;">
+      <h3>กลุ่มโฆษณา 1 — มอเตอร์เรือไฟฟ้า / มอเตอร์ไกด์ (12 คำ)</h3>
+      <div class="tags"><span class="tag">"มอเตอร์เรือไฟฟ้า"</span><span class="tag">[มอเตอร์เรือไฟฟ้า]</span><span class="tag">"มอเตอร์ไกด์"</span><span class="tag">[มอเตอร์ไกด์]</span><span class="tag">"มอเตอร์ไกด์ ราคา"</span><span class="tag">"มอเตอร์เรือไฟฟ้า ราคา"</span><span class="tag">"มอเตอร์ไกด์ ซื้อที่ไหน"</span><span class="tag">"มอเตอร์เรือไฟฟ้า ซื้อที่ไหน"</span><span class="tag">"มอเตอร์ไฟฟ้าติดเรือ"</span><span class="tag">"trolling motor"</span><span class="tag">[trolling motor]</span><span class="tag">"มอเตอร์ไกด์ trolling motor"</span></div>
+    </div>
+    <div class="tag-group">
+      <h3>กลุ่มโฆษณา 2 — คายัค/ตกปลา (8 คำ)</h3>
+      <div class="tags"><span class="tag">"มอเตอร์เรือคายัค"</span><span class="tag">"มอเตอร์ติดเรือคายัค"</span><span class="tag">"มอเตอร์ไกด์ เรือคายัค"</span><span class="tag">[มอเตอร์ไกด์ เรือคายัค]</span><span class="tag">"มอเตอร์เรือตกปลา"</span><span class="tag">"มอเตอร์ไกด์ ตกปลา"</span><span class="tag">"มอเตอร์ไฟฟ้า ตกปลา"</span><span class="tag">"kayak trolling motor"</span></div>
+    </div>
+    <div class="tag-group">
+      <h3>กลุ่มโฆษณา 3 — รุ่น/สเปค (8 คำ)</h3>
+      <div class="tags"><span class="tag">"มอเตอร์ไกด์ 45 ปอนด์"</span><span class="tag">"มอเตอร์ไกด์ 55 ปอนด์"</span><span class="tag">"มอเตอร์ไกด์ 70 ปอนด์"</span><span class="tag">"มอเตอร์ไกด์ 80 ปอนด์"</span><span class="tag">"มอเตอร์ไกด์ 100 ปอนด์"</span><span class="tag">"brushless trolling motor"</span><span class="tag">"มอเตอร์ไกด์ brushless"</span><span class="tag">"มอเตอร์ไกด์ 100 lbs"</span></div>
+    </div>
+    <div class="tag-group">
+      <h3>🚫 Negative Keywords ระดับแคมเปญ (17 คำ)</h3>
+      <div class="tags"><span class="tag neg">มือสอง</span><span class="tag neg">diy</span><span class="tag neg">ทำเอง</span><span class="tag neg">อะไหล่</span><span class="tag neg">ซ่อม</span><span class="tag neg">วิธีทำ</span><span class="tag neg">ฟรี</span><span class="tag neg">ดาวน์โหลด</span><span class="tag neg">pdf</span><span class="tag neg">ขายส่ง</span><span class="tag neg">เช่า</span><span class="tag neg">minn kota</span><span class="tag neg">motorguide</span><span class="tag neg">haswing</span><span class="tag neg">hk</span><span class="tag neg">งาน</span><span class="tag neg">สมัครงาน</span></div>
+    </div>
+    <p style="font-weight:700;font-size:14px;margin:16px 0 8px;color:#202124;">โฆษณา (ใช้ชุดเดียวกันทั้ง 3 กลุ่ม)</p>
+    <ul class="steps">
+      <li>พาดหัว 9 แบบ เช่น "มอเตอร์ไกด์ Delta Brushless", "มอเตอร์เรือไฟฟ้า 45-100 ปอนด์", "สั่งซื้อผ่าน Shopee / Lazada", "ทักไลน์สอบถามรุ่นที่เหมาะ"</li>
+      <li>คำอธิบาย 4 แบบ เช่น "มอเตอร์ไกด์ Delta Brushless แรงขับสูง ทนทาน ประหยัดแบตเตอรี่ มีรุ่น 45-100 ปอนด์"</li>
+    </ul>
+    <div class="note">⏳ ข้อควรรู้: (1) แคมเปญอยู่ในบัญชีเดียวกับ Alpha Kayaks จึงใช้เป้าหมาย Conversion เดิมของ Alpha จนกว่าจะนำเข้า key event ของ Delta จาก GA4 (2) เชื่อม GA4 (property xxxxxxxxx) กับบัญชี Ads แล้ว ข้อมูลอาจใช้เวลา 24 ชม. (3) key event ใน GA4 ยังติ๊กไม่ได้เพราะ GA4 ยังไม่ประมวลผลเหตุการณ์ click_* ทำได้ราว 11 ต.ค. (4) ยังไม่มี Sitelinks</div>
+  </div>
+
+</div>
+</body>
+</html>
